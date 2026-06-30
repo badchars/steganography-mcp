@@ -1,7 +1,7 @@
 # steganography-mcp — Steganography Analysis MCP Server
 
 ## Overview
-60-tool MCP server for steganography analysis: image steganalysis, JPEG forensics, audio steganography, text/unicode steganography, file forensics, document analysis, encoding detection.
+128-tool MCP server for steganography analysis: image steganalysis, JPEG forensics (F5/JSteg/OutGuess), BPCS analysis, video & GIF steganography, network covert channels, MP3 stego, spread spectrum watermarks, archive stego, QR code analysis, audio steganography, text/unicode steganography, file forensics, document analysis, encoding detection.
 
 ## Architecture
 - **Runtime:** Bun 1.3.9+ (dev), Node.js (publish)
@@ -16,8 +16,8 @@
 - Pure TS for WAV/BMP parsing, statistical analysis, text analysis, file forensics
 - Import paths use `.js` extension (ESM)
 
-## Categories (7)
-image (img_*), jpeg (jpeg_*), audio (audio_*), text (text_*), file (file_*), document (doc_*), crypto (crypto_*)
+## Categories (17)
+image (img_*), jpeg (jpeg_*), audio (audio_*), text (text_*), file (file_*), document (doc_*), crypto (crypto_*), video (video_*), gif (gif_*), network (net_*), mp3 (mp3_*), advanced-jpeg (jpegadv_*), spread-spectrum (spread_*), bpcs (bpcs_*), archive (archive_*), create (create_*), qr (qr_*)
 
 ## Commands
 ```bash

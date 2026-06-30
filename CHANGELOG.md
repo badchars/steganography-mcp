@@ -5,6 +5,115 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] — 2025-06-29
+
+### Added
+
+Expanded from **60 tools** across **7 categories** to **128 tools** across **17 categories**.
+
+#### Video Steganography (8 tools)
+
+- `video_detect` — Auto-detect steganography in AVI video files
+- `video_frame_lsb` — LSB analysis of a specific video frame
+- `video_frame_extract` — Extract LSB data from video frames
+- `video_frame_compare` — Compare adjacent video frames for pixel-level anomalies
+- `video_inter_frame` — Analyze frame types from the AVI idx1 index
+- `video_metadata` — Extract metadata from AVI video files
+- `video_structure` — Visualize AVI/RIFF chunk structure as a tree
+- `video_eof_data` — Detect data appended after AVI RIFF container EOF
+
+#### GIF Steganography (8 tools)
+
+- `gif_detect` — Auto-detect steganography in GIF files
+- `gif_palette` — Analyze GIF global color table for steganographic indicators
+- `gif_palette_lsb` — Extract and analyze LSB patterns from GIF color table entries
+- `gif_frame_analysis` — Analyze multi-frame GIF animation properties
+- `gif_comment` — Extract and analyze GIF comment extensions
+- `gif_appext` — Analyze GIF application extensions
+- `gif_lzw_analysis` — Analyze LZW compressed sub-block sizes and entropy
+- `gif_structure` — Visualize GIF block structure
+
+#### Network Steganography (8 tools)
+
+- `net_detect` — Auto-detect network steganography in PCAP files
+- `net_ip_header` — IP header covert field analysis
+- `net_tcp_header` — TCP sequence/acknowledgment number analysis
+- `net_icmp_payload` — ICMP echo payload analysis
+- `net_dns_tunnel` — DNS tunneling detection
+- `net_http_header` — HTTP header covert channel analysis
+- `net_timing` — Inter-packet timing analysis
+- `net_stats` — PCAP statistics summary
+
+#### MP3 Steganography (7 tools)
+
+- `mp3_detect` — Auto-detect MP3 steganography
+- `mp3_frame_analysis` — MP3 frame header analysis
+- `mp3_id3_hidden` — ID3v1/v2 hidden data analysis
+- `mp3_padding` — Bit reservoir and padding manipulation detection
+- `mp3_sample_analysis` — Statistical analysis of decoded MP3 frame sizes
+- `mp3_metadata` — Full MP3 metadata extraction
+- `mp3_structure` — MP3 frame structure visualization
+
+#### Advanced JPEG (7 tools)
+
+- `jpegadv_f5_detect` — F5 steganography detection
+- `jpegadv_jsteg_detect` — JSteg steganography detection
+- `jpegadv_outguess_detect` — OutGuess steganography detection
+- `jpegadv_pvd_detect` — Pixel Value Differencing (PVD) steganography detection
+- `jpegadv_chi_sliding` — Sliding window chi-square analysis over DCT coefficients
+- `jpegadv_calibration` — Crop-recalibrate steganalysis
+- `jpegadv_compatibility` — JPEG stego tool compatibility check
+
+#### Spread Spectrum (5 tools)
+
+- `spread_dft_analysis` — DFT magnitude spectrum analysis for spread spectrum detection
+- `spread_correlation` — Autocorrelation-based steganography detection
+- `spread_watermark_detect` — Statistical watermark detection via variance comparison
+- `spread_noise_analysis` — Noise floor embedding detection
+- `spread_patchwork` — Patchwork watermark detection using statistical test
+
+#### BPCS Analysis (5 tools)
+
+- `bpcs_detect` — Auto-detect BPCS (Bit-Plane Complexity Segmentation) embedding
+- `bpcs_complexity_map` — Generate detailed complexity map of all bit planes
+- `bpcs_threshold` — Complexity threshold analysis for BPCS steganalysis
+- `bpcs_extract` — Extract data from BPCS complex regions
+- `bpcs_capacity` — Estimate BPCS embedding capacity
+
+#### Archive Steganography (7 tools)
+
+- `archive_detect` — Auto-detect steganography in ZIP archives
+- `archive_structure` — ZIP entry structure analysis
+- `archive_extra_fields` — ZIP extra field analysis
+- `archive_comment` — Extract archive-level and per-file comments
+- `archive_slack` — Slack space analysis for ZIP archives
+- `archive_polyglot` — Archive polyglot detection
+- `archive_metadata` — Archive metadata summary
+
+#### Create & Embed (7 tools)
+
+- `create_eof_inject` — Append data after a file's end-of-file marker
+- `create_metadata` — Inject data into file metadata fields
+- `create_whitespace` — Embed data in file whitespace using trailing spaces and tabs
+- `create_null_cipher` — Create null cipher text hiding a secret message
+- `create_polyglot` — Create polyglot files by prepending one format before another
+- `create_comment` — Inject data into format-specific comment fields
+- `create_palette` — Embed data in palette color entry LSBs
+
+#### QR Code Steganography (6 tools)
+
+- `qr_detect` — Detect steganography in QR code images
+- `qr_structure` — QR code structure analysis
+- `qr_ecc_analysis` — Error correction capacity analysis
+- `qr_module_analysis` — Module-level pixel analysis
+- `qr_data_extract` — Extract QR data region pixels
+- `qr_compare` — Compare two QR code images for differences
+
+### Changed
+
+- Updated all 22 README translations to reflect 128 tools / 17 categories
+- Updated package.json keywords with new category terms
+
 ## [0.1.0] — 2025-06-29
 
 ### Added
@@ -103,4 +212,5 @@ Initial release with **60 tools** across **7 categories** for comprehensive steg
 - CLI mode with `--list`, `--tool`, and `--help` flags
 - Configurable max file size and temp directory via environment variables
 
+[0.2.0]: https://github.com/badchars/steganography-mcp/releases/tag/v0.2.0
 [0.1.0]: https://github.com/badchars/steganography-mcp/releases/tag/v0.1.0
