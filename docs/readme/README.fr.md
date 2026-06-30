@@ -36,8 +36,8 @@
 <h3 align="center">La bo&icirc;te &agrave; outils d'analyse st&eacute;ganographique la plus compl&egrave;te pour les agents IA.</h3>
 
 <p align="center">
-  D&eacute;tection LSB, st&eacute;ganalyse chi-carr&eacute;, analyse RS, forensique DCT, st&eacute;ganographie audio, encodage de texte en caract&egrave;res de largeur z&eacute;ro, forensique de fichiers, d&eacute;tection polyglotte, identification d'encodage &mdash; unifi&eacute;s en un seul serveur MCP.<br>
-  <b>60 outils. 7 cat&eacute;gories. 4 d&eacute;pendances. 100 % hors ligne.</b> Aucune cl&eacute; API requise. Chaque outil s'ex&eacute;cute localement.
+  D&eacute;tection LSB, st&eacute;ganalyse chi-carr&eacute;, analyse RS, forensique DCT, st&eacute;ganographie audio, encodage de texte en caract&egrave;res de largeur z&eacute;ro, forensique de fichiers, d&eacute;tection polyglotte, identification d'encodage, analyse JPEG avanc&eacute;e, st&eacute;ganographie vid&eacute;o/GIF/MP3, st&eacute;ganographie r&eacute;seau, analyse &agrave; spectre &eacute;tal&eacute;, BPCS, st&eacute;ganographie d'archives, cr&eacute;ation et incorporation, st&eacute;ganalyse de codes QR &mdash; unifi&eacute;s en un seul serveur MCP.<br>
+  <b>128 outils. 17 cat&eacute;gories. 4 d&eacute;pendances. 100 % hors ligne.</b> Aucune cl&eacute; API requise. Chaque outil s'ex&eacute;cute localement.
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#ce-qui-le-diff&eacute;rencie">Ce qui le diff&eacute;rencie</a> &bull;
   <a href="#d&eacute;marrage-rapide">D&eacute;marrage rapide</a> &bull;
   <a href="#ce-que-lia-peut-faire">Ce que l'IA peut faire</a> &bull;
-  <a href="#r&eacute;f&eacute;rence-des-outils-60-outils">Outils (60)</a> &bull;
+  <a href="#r&eacute;f&eacute;rence-des-outils-128-outils">Outils (128)</a> &bull;
   <a href="#utilisation-cli">Utilisation CLI</a> &bull;
   <a href="#architecture">Architecture</a> &bull;
   <a href="../../CONTRIBUTING.md">Contribuer</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP Compatible">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Tools">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Tools">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Zero API Keys">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub stars"></a>
@@ -87,7 +87,7 @@ Flux de travail traditionnel d'analyse st&eacute;ganographique :
   Total : 10+ outils, 5+ langages, des heures de corr&eacute;lation manuelle
 ```
 
-**steganography-mcp** donne &agrave; votre agent IA 60 outils r&eacute;partis en 7 cat&eacute;gories via le [Model Context Protocol](https://modelcontextprotocol.io). L'agent effectue la st&eacute;ganalyse d'images, la forensique JPEG, l'analyse audio, la d&eacute;tection de st&eacute;ganographie textuelle, la forensique de fichiers, l'analyse de documents et l'identification d'encodage &mdash; le tout dans une seule conversation, le tout ex&eacute;cut&eacute; &agrave; 100 % localement sans aucune d&eacute;pendance &agrave; des services externes.
+**steganography-mcp** donne &agrave; votre agent IA 128 outils r&eacute;partis en 17 cat&eacute;gories via le [Model Context Protocol](https://modelcontextprotocol.io). L'agent effectue la st&eacute;ganalyse d'images, la forensique JPEG, l'analyse JPEG avanc&eacute;e, l'analyse audio, la d&eacute;tection de st&eacute;ganographie textuelle, la forensique de fichiers, l'analyse de documents, l'identification d'encodage, la st&eacute;ganographie vid&eacute;o/GIF/MP3, la st&eacute;ganographie r&eacute;seau, l'analyse &agrave; spectre &eacute;tal&eacute;, l'analyse BPCS, la st&eacute;ganographie d'archives, la cr&eacute;ation et incorporation, et la st&eacute;ganalyse de codes QR &mdash; le tout dans une seule conversation, le tout ex&eacute;cut&eacute; &agrave; 100 % localement sans aucune d&eacute;pendance &agrave; des services externes.
 
 ```
 Avec steganography-mcp :
@@ -131,7 +131,7 @@ La plupart des outils de st&eacute;ganographie sont des utilitaires &agrave; usa
 <tr>
 <td><b>Couverture</b></td>
 <td>Une technique &agrave; la fois</td>
-<td>7 cat&eacute;gories, 60 outils en parall&egrave;le</td>
+<td>17 cat&eacute;gories, 128 outils en parall&egrave;le</td>
 </tr>
 <tr>
 <td><b>Analyse d'image</b></td>
@@ -181,7 +181,7 @@ La plupart des outils de st&eacute;ganographie sont des utilitaires &agrave; usa
 npx -y steganography-mcp
 ```
 
-Les 60 outils fonctionnent imm&eacute;diatement. Aucune cl&eacute; API. Aucune configuration. 100 % hors ligne.
+Les 128 outils fonctionnent imm&eacute;diatement. Aucune cl&eacute; API. Aucune configuration. 100 % hors ligne.
 
 ### Option 2 : bunx (plus rapide)
 
@@ -342,7 +342,7 @@ Agent : -> jpeg_structure : 14 marqueurs analys&eacute;s, structure JFIF normale
 
 ---
 
-## R&eacute;f&eacute;rence des outils (60 outils)
+## R&eacute;f&eacute;rence des outils (128 outils)
 
 ### Aper&ccedil;u par cat&eacute;gorie
 
@@ -355,6 +355,16 @@ Agent : -> jpeg_structure : 14 marqueurs analys&eacute;s, structure JFIF normale
 | [Forensique de fichiers](#-forensique-de-fichiers-10) | 10 | Magic bytes, d&eacute;tection polyglotte, fichiers embarqu&eacute;s, donn&eacute;es ajout&eacute;es, entropie, dump hex, cha&icirc;nes, en-t&ecirc;tes |
 | [Analyse de documents](#-analyse-de-documents-5) | 5 | Contenu PDF cach&eacute;, m&eacute;tadonn&eacute;es PDF, flux PDF, contenu HTML cach&eacute;, m&eacute;tadonn&eacute;es XML |
 | [Encodage et cryptographie](#-encodage-et-cryptographie-7) | 7 | D&eacute;tection d'encodage, d&eacute;codeur multi-format, analyse de fr&eacute;quence, entropie, force brute XOR, ID de hash, motifs de chiffrement |
+| [Analyse JPEG avanc&eacute;e](#-analyse-jpeg-avanc&eacute;e-7) | 7 | D&eacute;tection F5, JSteg, OutGuess, PVD, chi-carr&eacute; &agrave; fen&ecirc;tre glissante, st&eacute;ganalyse crop-recalibrate, compatibilit&eacute; d'outils |
+| [St&eacute;ganographie vid&eacute;o](#-st&eacute;ganographie-vid&eacute;o-8) | 8 | LSB de trames AVI, analyse inter-trames, comparaison de trames, m&eacute;tadonn&eacute;es, structure, donn&eacute;es EOF |
+| [St&eacute;ganographie GIF](#-st&eacute;ganographie-gif-8) | 8 | LSB de palette, entropie des sous-blocs LZW, extensions de commentaires, extensions d'applications, analyse de trames |
+| [St&eacute;ganographie r&eacute;seau](#-st&eacute;ganographie-r&eacute;seau-8) | 8 | Canaux cach&eacute;s PCAP, analyse des en-t&ecirc;tes IP/TCP, charges utiles ICMP, tunneling DNS, en-t&ecirc;tes HTTP, timing |
+| [St&eacute;ganographie MP3](#-st&eacute;ganographie-mp3-7) | 7 | Donn&eacute;es cach&eacute;es ID3, analyse de trames, manipulation de padding, analyse d'&eacute;chantillons, m&eacute;tadonn&eacute;es, structure |
+| [Analyse &agrave; spectre &eacute;tal&eacute;](#-analyse-&agrave;-spectre-&eacute;tal&eacute;-5) | 5 | Spectre de magnitude DFT, autocorr&eacute;lation, d&eacute;tection de filigrane, analyse du plancher de bruit, d&eacute;tection patchwork |
+| [Analyse BPCS](#-analyse-bpcs-5) | 5 | Segmentation par complexit&eacute; de plan de bits, cartographie de complexit&eacute;, analyse de seuil, extraction de donn&eacute;es, estimation de capacit&eacute; |
+| [St&eacute;ganographie d'archives](#-st&eacute;ganographie-darchives-7) | 7 | Espaces slack ZIP, champs suppl&eacute;mentaires, commentaires, d&eacute;tection polyglotte, analyse de structure, m&eacute;tadonn&eacute;es |
+| [Cr&eacute;ation et incorporation](#-cr&eacute;ation-et-incorporation-7) | 7 | Injection EOF, injection de m&eacute;tadonn&eacute;es, encodage par espaces blancs, chiffre nul, cr&eacute;ation polyglotte, injection de commentaires, incorporation dans la palette |
+| [St&eacute;ganographie de codes QR](#-st&eacute;ganographie-de-codes-qr-6) | 6 | D&eacute;tection st&eacute;go QR, analyse de structure, capacit&eacute; ECC, analyse de modules, extraction de donn&eacute;es, comparaison |
 
 ---
 
@@ -482,7 +492,7 @@ Agent : -> jpeg_structure : 14 marqueurs analys&eacute;s, structure JFIF normale
 # Afficher l'aide
 npx -y steganography-mcp --help
 
-# Lister les 60 outils avec descriptions
+# Lister les 128 outils avec descriptions
 npx -y steganography-mcp --list
 
 # D&eacute;tecter la st&eacute;ganographie dans une image
@@ -562,17 +572,22 @@ src/
   index.ts                    # Point d'entr&eacute;e CLI (--help, --list, --tool, serveur stdio)
   protocol/
     mcp-server.ts             # Configuration du serveur MCP (transport stdio)
-    tools.ts                  # Registre des outils — les 60 outils assembl&eacute;s ici
+    tools.ts                  # Registre des outils — les 128 outils assembl&eacute;s ici
   types/
     index.ts                  # Types partag&eacute;s (ToolDef, ToolContext, ToolResult)
   utils/
     binary.ts                 # Lecture de fichiers binaires, dump hex, d&eacute;tection de format
-    stats.ts                  # Entropie de Shannon, chi-carr&eacute;, fr&eacute;quence d'octets
+    stats.ts                  # Entropie de Shannon, chi-carr&eacute;, fr&eacute;quence d'octets, DFT, autocorr&eacute;lation, complexit&eacute; BPCS, test patchwork
     cache.ts                  # Cache TTL
     png-parser.ts             # Parser PNG pur TS (IHDR, chunks, donn&eacute;es de pixels)
     jpeg-parser.ts            # Parser JPEG pur TS (marqueurs, EXIF, quantification)
     wav-parser.ts             # Parser WAV pur TS (chunks RIFF, &eacute;chantillons PCM)
     bmp-parser.ts             # Parser BMP pur TS (en-t&ecirc;te, donn&eacute;es de pixels)
+    avi-parser.ts             # Parser AVI pur TS (trames, en-t&ecirc;tes)
+    gif-parser.ts             # Parser GIF pur TS (palette, blocs LZW, extensions)
+    pcap-parser.ts            # Parser PCAP pur TS (paquets, en-t&ecirc;tes)
+    mp3-parser.ts             # Parser MP3 pur TS (trames, tags ID3)
+    zip-parser.ts             # Parser ZIP pur TS (entr&eacute;es, espaces slack)
   image/                      # Outils de st&eacute;ganalyse d'image (14)
   jpeg/                       # Outils d'analyse JPEG (7)
   audio/                      # Outils de st&eacute;ganalyse audio (7)
@@ -580,6 +595,16 @@ src/
   file/                       # Outils de forensique de fichiers (10)
   document/                   # Outils d'analyse de documents (5)
   crypto/                     # Outils d'encodage et cryptographie (7)
+  jpegadv/                    # Outils d'analyse JPEG avanc&eacute;e (7)
+  video/                      # Outils de st&eacute;ganographie vid&eacute;o (8)
+  gif/                        # Outils de st&eacute;ganographie GIF (8)
+  network/                    # Outils de st&eacute;ganographie r&eacute;seau (8)
+  mp3/                        # Outils de st&eacute;ganographie MP3 (7)
+  spread/                     # Outils d'analyse &agrave; spectre &eacute;tal&eacute; (5)
+  bpcs/                       # Outils d'analyse BPCS (5)
+  archive/                    # Outils de st&eacute;ganographie d'archives (7)
+  create/                     # Outils de cr&eacute;ation et incorporation (7)
+  qrcode/                     # Outils de st&eacute;ganographie de codes QR (6)
   data/
     encoding-patterns.ts      # Motifs regex d'encodage + d&eacute;codeurs
     magic-bytes.ts            # Base de donn&eacute;es de signatures de fichiers (100+ formats)
@@ -593,7 +618,7 @@ src/
 - **100 % hors ligne** &mdash; Chaque outil s'ex&eacute;cute enti&egrave;rement en local. Aucune requ&ecirc;te HTTP. Aucun appel API. Aucune t&eacute;l&eacute;m&eacute;trie. Aucune d&eacute;pendance cloud. Vos fichiers ne quittent jamais votre machine.
 - **Analyse statistique en TypeScript pur** &mdash; Test chi-carr&eacute;, analyse RS (Fridrich-Goljan-Du), Analyse de Paires d'&Eacute;chantillons, entropie de Shannon, Indice de Co&iuml;ncidence et analyse de fr&eacute;quence sont tous impl&eacute;ment&eacute;s en TypeScript pur. Aucune biblioth&egrave;que math&eacute;matique externe.
 - **Parsers de format personnalis&eacute;s** &mdash; Les chunks PNG, marqueurs/EXIF/tables de quantification JPEG, chunks RIFF WAV et en-t&ecirc;tes BMP sont analys&eacute;s sans aucune d&eacute;pendance externe gr&acirc;ce aux parsers `utils/`. Cela permet une analyse approfondie sp&eacute;cifique au format que les biblioth&egrave;ques g&eacute;n&eacute;riques ne peuvent pas offrir.
-- **7 fournisseurs, 1 serveur** &mdash; Chaque cat&eacute;gorie d'analyse est un module ind&eacute;pendant. L'agent IA choisit quels outils utiliser en fonction du contexte de l'enqu&ecirc;te.
+- **17 fournisseurs, 1 serveur** &mdash; Chaque cat&eacute;gorie d'analyse est un module ind&eacute;pendant. L'agent IA choisit quels outils utiliser en fonction du contexte de l'enqu&ecirc;te.
 - **Patron ToolDef propre** &mdash; Chaque outil suit le m&ecirc;me patron `{ name, description, schema, execute }`. Ajouter un nouvel outil consiste en un seul objet dans le module concern&eacute;.
 - **Validation Zod sur chaque champ** &mdash; Chaque champ de sch&eacute;ma poss&egrave;de `.describe()` pour le contexte de l'agent IA. Les entr&eacute;es invalides sont intercept&eacute;es avant l'ex&eacute;cution avec des messages d'erreur clairs.
 
@@ -610,7 +635,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT et reconnaissance | 37 outils |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | Dark web et renseignement sur les menaces | 66 outils |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | Renseignement de s&eacute;curit&eacute; DNS | 103 outils |
-| **steganography-mcp** | **Analyse st&eacute;ganographique** | **60 outils** |
+| **steganography-mcp** | **Analyse st&eacute;ganographique** | **128 outils** |
 
 ---
 

@@ -36,8 +36,8 @@
 <h3 align="center">Il toolkit di analisi steganografica pi&ugrave; completo per agenti IA.</h3>
 
 <p align="center">
-  Rilevamento LSB, steganalisi chi-quadrato, analisi RS, forensica DCT, steganografia audio, codifica di testo con caratteri a larghezza zero, forensica dei file, rilevamento poliglotta, identificazione della codifica &mdash; unificati in un unico server MCP.<br>
-  <b>60 strumenti. 7 categorie. 4 dipendenze. 100 % offline.</b> Nessuna chiave API necessaria. Ogni strumento viene eseguito localmente.
+  Rilevamento LSB, steganalisi chi-quadrato, analisi RS, forensica DCT, steganografia audio, codifica di testo con caratteri a larghezza zero, forensica dei file, rilevamento poliglotta, identificazione della codifica, analisi JPEG avanzata, steganografia video/GIF/MP3, steganografia di rete, analisi a spettro diffuso, BPCS, steganografia di archivi, creazione e incorporamento, steganalisi di codici QR &mdash; unificati in un unico server MCP.<br>
+  <b>128 strumenti. 17 categorie. 4 dipendenze. 100 % offline.</b> Nessuna chiave API necessaria. Ogni strumento viene eseguito localmente.
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#cosa-lo-rende-diverso">Cosa lo rende diverso</a> &bull;
   <a href="#avvio-rapido">Avvio rapido</a> &bull;
   <a href="#cosa-pu&ograve;-fare-lia">Cosa pu&ograve; fare l'IA</a> &bull;
-  <a href="#riferimento-strumenti-60-strumenti">Strumenti (60)</a> &bull;
+  <a href="#riferimento-strumenti-128-strumenti">Strumenti (128)</a> &bull;
   <a href="#utilizzo-cli">Utilizzo CLI</a> &bull;
   <a href="#architettura">Architettura</a> &bull;
   <a href="../../CONTRIBUTING.md">Contribuire</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP Compatible">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Tools">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Tools">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Zero API Keys">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub stars"></a>
@@ -87,7 +87,7 @@ Flusso di lavoro tradizionale di analisi steganografica:
   Totale: 10+ strumenti, 5+ linguaggi, ore di correlazione manuale
 ```
 
-**steganography-mcp** fornisce al vostro agente IA 60 strumenti in 7 categorie tramite il [Model Context Protocol](https://modelcontextprotocol.io). L'agente esegue steganalisi delle immagini, forensica JPEG, analisi audio, rilevamento di steganografia testuale, forensica dei file, analisi di documenti e identificazione della codifica &mdash; tutto in una singola conversazione, tutto eseguito al 100 % in locale senza alcuna dipendenza da servizi esterni.
+**steganography-mcp** fornisce al vostro agente IA 128 strumenti in 17 categorie tramite il [Model Context Protocol](https://modelcontextprotocol.io). L'agente esegue steganalisi delle immagini, forensica JPEG, analisi JPEG avanzata, analisi audio, rilevamento di steganografia testuale, forensica dei file, analisi di documenti, identificazione della codifica, steganografia video/GIF/MP3, steganografia di rete, analisi a spettro diffuso, analisi BPCS, steganografia di archivi, creazione e incorporamento, e steganalisi di codici QR &mdash; tutto in una singola conversazione, tutto eseguito al 100 % in locale senza alcuna dipendenza da servizi esterni.
 
 ```
 Con steganography-mcp:
@@ -131,7 +131,7 @@ La maggior parte degli strumenti di steganografia sono utilit&agrave; monouso. s
 <tr>
 <td><b>Copertura</b></td>
 <td>Una tecnica alla volta</td>
-<td>7 categorie, 60 strumenti in parallelo</td>
+<td>17 categorie, 128 strumenti in parallelo</td>
 </tr>
 <tr>
 <td><b>Analisi immagini</b></td>
@@ -181,7 +181,7 @@ La maggior parte degli strumenti di steganografia sono utilit&agrave; monouso. s
 npx -y steganography-mcp
 ```
 
-Tutti i 60 strumenti funzionano immediatamente. Nessuna chiave API. Nessuna configurazione. 100 % offline.
+Tutti i 128 strumenti funzionano immediatamente. Nessuna chiave API. Nessuna configurazione. 100 % offline.
 
 ### Opzione 2: bunx (pi&ugrave; veloce)
 
@@ -340,7 +340,7 @@ Agente: -> jpeg_structure: 14 marcatori analizzati, struttura JFIF normale
 
 ---
 
-## Riferimento strumenti (60 strumenti)
+## Riferimento strumenti (128 strumenti)
 
 ### Panoramica per categoria
 
@@ -353,6 +353,16 @@ Agente: -> jpeg_structure: 14 marcatori analizzati, struttura JFIF normale
 | [Forensica dei file](#-forensica-dei-file-10) | 10 | Magic bytes, rilevamento poliglotta, file incorporati, dati aggiunti, entropia, dump hex, stringhe, intestazioni |
 | [Analisi documenti](#-analisi-documenti-5) | 5 | Contenuto PDF nascosto, metadati PDF, stream PDF, contenuto HTML nascosto, metadati XML |
 | [Codifica e crittografia](#-codifica-e-crittografia-7) | 7 | Rilevamento codifica, decodificatore multi-formato, analisi di frequenza, entropia, forza bruta XOR, ID hash, pattern di cifratura |
+| [Analisi JPEG avanzata](#-analisi-jpeg-avanzata-7) | 7 | Rilevamento F5, JSteg, OutGuess, PVD, chi-quadrato a finestra scorrevole, steganalisi crop-recalibrate, compatibilit&agrave; strumenti |
+| [Steganografia video](#-steganografia-video-8) | 8 | LSB frame AVI, analisi inter-frame, confronto frame, metadati, struttura, dati EOF |
+| [Steganografia GIF](#-steganografia-gif-8) | 8 | LSB palette, entropia sotto-blocchi LZW, estensioni commenti, estensioni applicazione, analisi frame |
+| [Steganografia di rete](#-steganografia-di-rete-8) | 8 | Canali nascosti PCAP, analisi header IP/TCP, payload ICMP, tunneling DNS, header HTTP, timing |
+| [Steganografia MP3](#-steganografia-mp3-7) | 7 | Dati nascosti ID3, analisi frame, manipolazione padding, analisi campioni, metadati, struttura |
+| [Analisi a spettro diffuso](#-analisi-a-spettro-diffuso-5) | 5 | Spettro di magnitudine DFT, autocorrelazione, rilevamento filigrana, analisi rumore di fondo, rilevamento patchwork |
+| [Analisi BPCS](#-analisi-bpcs-5) | 5 | Segmentazione per complessit&agrave; dei piani di bit, mappatura complessit&agrave;, analisi soglia, estrazione dati, stima capacit&agrave; |
+| [Steganografia di archivi](#-steganografia-di-archivi-7) | 7 | Spazi slack ZIP, campi extra, commenti, rilevamento poliglotta, analisi struttura, metadati |
+| [Creazione e incorporamento](#-creazione-e-incorporamento-7) | 7 | Iniezione EOF, iniezione metadati, codifica spazi bianchi, cifrario nullo, creazione poliglotta, iniezione commenti, incorporamento palette |
+| [Steganografia codici QR](#-steganografia-codici-qr-6) | 6 | Rilevamento stego QR, analisi struttura, capacit&agrave; ECC, analisi moduli, estrazione dati, confronto |
 
 ---
 
@@ -480,7 +490,7 @@ Agente: -> jpeg_structure: 14 marcatori analizzati, struttura JFIF normale
 # Mostrare l'aiuto
 npx -y steganography-mcp --help
 
-# Elencare tutti i 60 strumenti con descrizioni
+# Elencare tutti i 128 strumenti con descrizioni
 npx -y steganography-mcp --list
 
 # Rilevare steganografia in un'immagine
@@ -560,17 +570,22 @@ src/
   index.ts                    # Punto di ingresso CLI (--help, --list, --tool, server stdio)
   protocol/
     mcp-server.ts             # Configurazione del server MCP (trasporto stdio)
-    tools.ts                  # Registro strumenti — tutti i 60 strumenti assemblati qui
+    tools.ts                  # Registro strumenti — tutti i 128 strumenti assemblati qui
   types/
     index.ts                  # Tipi condivisi (ToolDef, ToolContext, ToolResult)
   utils/
     binary.ts                 # Lettura file binari, dump hex, rilevamento formato
-    stats.ts                  # Entropia di Shannon, chi-quadrato, frequenza byte
+    stats.ts                  # Entropia di Shannon, chi-quadrato, frequenza byte, DFT, autocorrelazione, complessit&agrave; BPCS, test patchwork
     cache.ts                  # Cache TTL
     png-parser.ts             # Parser PNG puro TS (IHDR, chunk, dati pixel)
     jpeg-parser.ts            # Parser JPEG puro TS (marcatori, EXIF, quantizzazione)
     wav-parser.ts             # Parser WAV puro TS (chunk RIFF, campioni PCM)
     bmp-parser.ts             # Parser BMP puro TS (intestazione, dati pixel)
+    avi-parser.ts             # Parser AVI puro TS (frame, intestazioni)
+    gif-parser.ts             # Parser GIF puro TS (palette, blocchi LZW, estensioni)
+    pcap-parser.ts            # Parser PCAP puro TS (pacchetti, intestazioni)
+    mp3-parser.ts             # Parser MP3 puro TS (frame, tag ID3)
+    zip-parser.ts             # Parser ZIP puro TS (voci, spazi slack)
   image/                      # Strumenti di steganalisi immagini (14)
   jpeg/                       # Strumenti di analisi JPEG (7)
   audio/                      # Strumenti di steganalisi audio (7)
@@ -578,6 +593,16 @@ src/
   file/                       # Strumenti di forensica file (10)
   document/                   # Strumenti di analisi documenti (5)
   crypto/                     # Strumenti di codifica e crittografia (7)
+  jpegadv/                    # Strumenti di analisi JPEG avanzata (7)
+  video/                      # Strumenti di steganografia video (8)
+  gif/                        # Strumenti di steganografia GIF (8)
+  network/                    # Strumenti di steganografia di rete (8)
+  mp3/                        # Strumenti di steganografia MP3 (7)
+  spread/                     # Strumenti di analisi a spettro diffuso (5)
+  bpcs/                       # Strumenti di analisi BPCS (5)
+  archive/                    # Strumenti di steganografia di archivi (7)
+  create/                     # Strumenti di creazione e incorporamento (7)
+  qrcode/                     # Strumenti di steganografia codici QR (6)
   data/
     encoding-patterns.ts      # Pattern regex di codifica + decodificatori
     magic-bytes.ts            # Database di firme file (100+ formati)
@@ -591,7 +616,7 @@ src/
 - **100 % offline** &mdash; Ogni strumento viene eseguito interamente in locale. Nessuna richiesta HTTP. Nessuna chiamata API. Nessuna telemetria. Nessuna dipendenza cloud. I vostri file non lasciano mai la vostra macchina.
 - **Analisi statistica in TypeScript puro** &mdash; Test chi-quadrato, analisi RS (Fridrich-Goljan-Du), Analisi di Coppie di Campioni, entropia di Shannon, Indice di Coincidenza e analisi di frequenza sono tutti implementati in TypeScript puro. Nessuna libreria matematica esterna.
 - **Parser di formato personalizzati** &mdash; Chunk PNG, marcatori/EXIF/tabelle di quantizzazione JPEG, chunk RIFF WAV e intestazioni BMP vengono analizzati con zero dipendenze esterne tramite i parser `utils/`. Ci&ograve; consente un'analisi approfondita specifica per formato che le librerie generiche non possono offrire.
-- **7 provider, 1 server** &mdash; Ogni categoria di analisi &egrave; un modulo indipendente. L'agente IA sceglie quali strumenti utilizzare in base al contesto dell'indagine.
+- **17 provider, 1 server** &mdash; Ogni categoria di analisi &egrave; un modulo indipendente. L'agente IA sceglie quali strumenti utilizzare in base al contesto dell'indagine.
 - **Pattern ToolDef pulito** &mdash; Ogni strumento segue lo stesso pattern `{ name, description, schema, execute }`. Aggiungere un nuovo strumento significa un singolo oggetto nel modulo appropriato.
 - **Validazione Zod su ogni campo** &mdash; Ogni campo dello schema ha `.describe()` per il contesto dell'agente IA. Gli input non validi vengono intercettati prima dell'esecuzione con messaggi di errore chiari.
 
@@ -608,7 +633,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT e ricognizione | 37 strumenti |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | Dark web e intelligence sulle minacce | 66 strumenti |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | Intelligence di sicurezza DNS | 103 strumenti |
-| **steganography-mcp** | **Analisi steganografica** | **60 strumenti** |
+| **steganography-mcp** | **Analisi steganografica** | **128 strumenti** |
 
 ---
 

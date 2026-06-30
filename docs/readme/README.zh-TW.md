@@ -36,8 +36,8 @@
 <h3 align="center">專為 AI 代理打造的最全面隱寫術分析工具包。</h3>
 
 <p align="center">
-  LSB 偵測、卡方隱寫分析、RS 分析、DCT 鑑識、音訊隱寫術、零寬文字編碼、檔案鑑識、多格式檔案偵測、編碼識別 &mdash; 全部整合於單一 MCP 伺服器中。<br>
-  <b>60 個工具。7 大類別。4 個相依套件。100% 離線運作。</b>無需 API 金鑰。所有工具均在本機執行。
+  LSB 偵測、卡方隱寫分析、RS 分析、DCT 鑑識、音訊隱寫術、零寬文字編碼、檔案鑑識、多格式檔案偵測、編碼識別、影片與 GIF 隱寫、網路隱蔽通道、MP3 分析、BPCS 與展頻、封存檔隱寫、QR 碼隱寫、建立與嵌入 &mdash; 全部整合於單一 MCP 伺服器中。<br>
+  <b>128 個工具。17 大類別。4 個相依套件。100% 離線運作。</b>無需 API 金鑰。所有工具均在本機執行。
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#有何不同">有何不同</a> &bull;
   <a href="#快速開始">快速開始</a> &bull;
   <a href="#ai-能做什麼">AI 能做什麼</a> &bull;
-  <a href="#工具參考60-個工具">工具 (60)</a> &bull;
+  <a href="#工具參考128-個工具">工具 (128)</a> &bull;
   <a href="#cli-用法">CLI 用法</a> &bull;
   <a href="#架構">架構</a> &bull;
   <a href="../../CONTRIBUTING.md">貢獻指南</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP Compatible">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Tools">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Tools">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Zero API Keys">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub stars"></a>
@@ -87,7 +87,7 @@
   總計：10+ 個工具，5+ 種語言，數小時手動關聯
 ```
 
-**steganography-mcp** 透過 [Model Context Protocol](https://modelcontextprotocol.io) 為你的 AI 代理提供橫跨 7 大類別的 60 個工具。代理可以執行圖片隱寫分析、JPEG 鑑識、音訊分析、文字隱寫偵測、檔案鑑識、文件分析和編碼識別 &mdash; 全部在一次對話中完成，100% 本機運作，完全不依賴外部服務。
+**steganography-mcp** 透過 [Model Context Protocol](https://modelcontextprotocol.io) 為你的 AI 代理提供橫跨 17 大類別的 128 個工具。代理可以執行圖片隱寫分析、JPEG 鑑識、音訊分析、文字隱寫偵測、檔案鑑識、文件分析、編碼識別、影片與 GIF 隱寫、網路隱蔽通道、MP3 分析、BPCS 與展頻分析、封存檔隱寫、QR 碼隱寫和建立與嵌入 &mdash; 全部在一次對話中完成，100% 本機運作，完全不依賴外部服務。
 
 ```
 使用 steganography-mcp：
@@ -130,7 +130,7 @@
 <tr>
 <td><b>涵蓋範圍</b></td>
 <td>一次只能用一種技術</td>
-<td>7 大類別，60 個工具並行運作</td>
+<td>17 大類別，128 個工具並行運作</td>
 </tr>
 <tr>
 <td><b>圖片分析</b></td>
@@ -180,7 +180,7 @@
 npx -y steganography-mcp
 ```
 
-全部 60 個工具即刻可用。無需 API 金鑰。無需設定。100% 離線運作。
+全部 128 個工具即刻可用。無需 API 金鑰。無需設定。100% 離線運作。
 
 ### 方式二：bunx（更快）
 
@@ -334,7 +334,7 @@ claude mcp add steganography -- bun run /path/to/steganography-mcp/src/index.ts
 
 ---
 
-## 工具參考（60 個工具）
+## 工具參考（128 個工具）
 
 ### 類別概覽
 
@@ -347,6 +347,16 @@ claude mcp add steganography -- bun run /path/to/steganography-mcp/src/index.ts
 | [檔案鑑識](#-檔案鑑識10) | 10 | 魔術位元組、多格式檔案偵測、嵌入檔案、附加資料、熵值、十六進位傾印、字串、檔頭 |
 | [文件分析](#-文件分析5) | 5 | PDF 隱藏內容、PDF 中繼資料、PDF 串流、HTML 隱藏內容、XML 中繼資料 |
 | [編碼與密碼](#-編碼與密碼7) | 7 | 編碼偵測、多格式解碼器、頻率分析、熵值、XOR 暴力破解、雜湊識別、密碼模式 |
+| 進階 JPEG | 7 | F5、JSteg、OutGuess、PVD 偵測、滑動視窗卡方檢定、裁剪重校準隱寫分析、工具相容性 |
+| 影片隱寫術 | 8 | AVI 幀 LSB、幀間分析、幀比較、中繼資料、結構、EOF 資料 |
+| GIF 隱寫術 | 8 | 調色盤 LSB、LZW 子區塊熵、註解擴充、應用程式擴充、幀分析 |
+| 網路隱寫術 | 8 | PCAP 隱蔽通道、IP/TCP 標頭分析、ICMP 酬載、DNS 隧道、HTTP 標頭、時序分析 |
+| MP3 隱寫術 | 7 | ID3 隱藏資料、幀分析、填充操作、取樣分析、中繼資料、結構 |
+| 展頻分析 | 5 | DFT 幅度頻譜、自相關、浮水印偵測、雜訊底限分析、Patchwork 偵測 |
+| BPCS 分析 | 5 | 位元平面複雜度分割、複雜度映射、閾值分析、資料擷取、容量估算 |
+| 封存檔隱寫術 | 7 | ZIP 鬆弛空間、額外欄位、註解、多格式檔案偵測、結構分析、中繼資料 |
+| 建立與嵌入 | 7 | EOF 注入、中繼資料注入、空白編碼、空密碼、多格式檔案建立、註解注入、調色盤嵌入 |
+| QR 碼隱寫術 | 6 | QR 隱寫偵測、結構分析、ECC 容量、模組分析、資料擷取、比較 |
 
 ---
 
@@ -474,7 +484,7 @@ claude mcp add steganography -- bun run /path/to/steganography-mcp/src/index.ts
 # 顯示說明
 npx -y steganography-mcp --help
 
-# 列出所有 60 個工具及其描述
+# 列出所有 128 個工具及其描述
 npx -y steganography-mcp --list
 
 # 偵測圖片中的隱寫術
@@ -554,17 +564,22 @@ src/
   index.ts                    # CLI 進入點（--help、--list、--tool、stdio 伺服器）
   protocol/
     mcp-server.ts             # MCP 伺服器設定（stdio 傳輸）
-    tools.ts                  # 工具註冊表 — 所有 60 個工具在此組裝
+    tools.ts                  # 工具註冊表 — 所有 128 個工具在此組裝
   types/
     index.ts                  # 共用類型（ToolDef、ToolContext、ToolResult）
   utils/
     binary.ts                 # 二進位檔案讀取、十六進位傾印、格式偵測
-    stats.ts                  # Shannon 熵、卡方檢定、位元組頻率
+    stats.ts                  # Shannon 熵、卡方檢定、位元組頻率、DFT、自相關、BPCS 複雜度、Patchwork 偵測
     cache.ts                  # TTL 快取
     png-parser.ts             # 純 TS PNG 解析器（IHDR、區塊、像素資料）
     jpeg-parser.ts            # 純 TS JPEG 解析器（標記、EXIF、量化）
     wav-parser.ts             # 純 TS WAV 解析器（RIFF 區塊、PCM 取樣）
     bmp-parser.ts             # 純 TS BMP 解析器（檔頭、像素資料）
+    avi-parser.ts             # 純 TS AVI 解析器（幀、結構）
+    gif-parser.ts             # 純 TS GIF 解析器（調色盤、幀、擴充）
+    pcap-parser.ts            # 純 TS PCAP 解析器（封包、標頭）
+    mp3-parser.ts             # 純 TS MP3 解析器（幀、ID3、取樣）
+    zip-parser.ts             # 純 TS ZIP 解析器（結構、鬆弛空間）
   image/                      # 圖片隱寫分析工具（14）
   jpeg/                       # JPEG 分析工具（7）
   audio/                      # 音訊隱寫分析工具（7）
@@ -572,6 +587,16 @@ src/
   file/                       # 檔案鑑識工具（10）
   document/                   # 文件分析工具（5）
   crypto/                     # 編碼與密碼工具（7）
+  jpegadv/                    # 進階 JPEG 工具（7）
+  video/                      # 影片隱寫術工具（8）
+  gif/                        # GIF 隱寫術工具（8）
+  network/                    # 網路隱寫術工具（8）
+  mp3/                        # MP3 隱寫術工具（7）
+  spread/                     # 展頻分析工具（5）
+  bpcs/                       # BPCS 分析工具（5）
+  archive/                    # 封存檔隱寫術工具（7）
+  create/                     # 建立與嵌入工具（7）
+  qrcode/                     # QR 碼隱寫術工具（6）
   data/
     encoding-patterns.ts      # 編碼正規表達式模式 + 解碼器
     magic-bytes.ts            # 檔案簽章資料庫（100+ 種格式）
@@ -585,7 +610,7 @@ src/
 - **100% 離線** &mdash; 所有工具完全在本機執行。無 HTTP 請求。無 API 呼叫。無遙測。無雲端相依。你的檔案永遠不會離開你的機器。
 - **純 TypeScript 統計分析** &mdash; 卡方檢定、RS 分析（Fridrich-Goljan-Du）、樣本對分析、Shannon 熵、重合指數和頻率分析均以純 TypeScript 實作。無外部數學函式庫。
 - **自訂格式解析器** &mdash; PNG 區塊、JPEG 標記/EXIF/量化表、WAV RIFF 區塊和 BMP 檔頭均使用 `utils/` 解析器以零外部相依進行解析。這使得通用函式庫無法提供的格式特定深度分析成為可能。
-- **7 個提供者，1 個伺服器** &mdash; 每個分析類別都是獨立的模組。AI 代理根據調查脈絡選擇使用哪些工具。
+- **17 個提供者，1 個伺服器** &mdash; 每個分析類別都是獨立的模組。AI 代理根據調查脈絡選擇使用哪些工具。
 - **統一的 ToolDef 模式** &mdash; 每個工具都遵循相同的 `{ name, description, schema, execute }` 模式。新增工具只需在相應模組中建立一個物件。
 - **每個欄位都有 Zod 驗證** &mdash; 每個 schema 欄位都有 `.describe()` 為 AI 代理提供脈絡。無效輸入在執行前被捕獲，並提供清晰的錯誤訊息。
 
@@ -602,7 +627,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT 與偵察 | 37 |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | 暗網與威脅情報 | 66 |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | DNS 安全情報 | 103 |
-| **steganography-mcp** | **隱寫術分析** | **60** |
+| **steganography-mcp** | **隱寫術分析** | **128** |
 
 ---
 

@@ -36,8 +36,8 @@
 <h3 align="center">Det mest omfattende steganografianalyseværktøj til AI-agenter.</h3>
 
 <p align="center">
-  LSB-detektion, chi-kvadrat steganalyse, RS-analyse, DCT-forensik, lydsteganografi, zero-width tekstkodning, filforensik, polyglotdetektion, kodningsidentifikation &mdash; samlet i én MCP-server.<br>
-  <b>60 værktøjer. 7 kategorier. 4 afhængigheder. 100% offline.</b> Ingen API-nøgler påkrævet. Alle værktøjer kører lokalt.
+  LSB-detektion, chi-kvadrat steganalyse, RS-analyse, DCT-forensik, lydsteganografi, zero-width tekstkodning, filforensik, polyglotdetektion, kodningsidentifikation, videosteganografi, GIF-analyse, netværkssteganografi, MP3-analyse, spread spectrum, BPCS, arkivsteganografi, QR-kodesteganografi &mdash; samlet i én MCP-server.<br>
+  <b>128 værktøjer. 17 kategorier. 4 afhængigheder. 100% offline.</b> Ingen API-nøgler påkrævet. Alle værktøjer kører lokalt.
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#hvad-gør-det-anderledes">Hvad gør det anderledes</a> &bull;
   <a href="#hurtig-start">Hurtig start</a> &bull;
   <a href="#hvad-ai-agenten-kan-gøre">Hvad AI-agenten kan gøre</a> &bull;
-  <a href="#værktøjsreference-60-værktøjer">Værktøjer (60)</a> &bull;
+  <a href="#værktøjsreference-128-værktøjer">Værktøjer (128)</a> &bull;
   <a href="#cli-brug">CLI-brug</a> &bull;
   <a href="#arkitektur">Arkitektur</a> &bull;
   <a href="../../CONTRIBUTING.md">Bidrag</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP Compatible">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Tools">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Tools">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Zero API Keys">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub stars"></a>
@@ -87,7 +87,7 @@ Traditionel steganografianalyse-arbejdsgang:
   Total: 10+ værktøjer, 5+ sprog, timer af manuel korrelation
 ```
 
-**steganography-mcp** giver din AI-agent 60 værktøjer på tværs af 7 kategorier via [Model Context Protocol](https://modelcontextprotocol.io). Agenten udfører billedsteganalyse, JPEG-forensik, lydanalyse, tekststeganografidetektion, filforensik, dokumentanalyse og kodningsidentifikation &mdash; alt sammen i én samtale, alt kørende 100% lokalt uden afhængigheder af eksterne tjenester.
+**steganography-mcp** giver din AI-agent 128 værktøjer på tværs af 17 kategorier via [Model Context Protocol](https://modelcontextprotocol.io). Agenten udfører billedsteganalyse, JPEG-forensik, avanceret JPEG-detektion, lydanalyse, tekststeganografidetektion, filforensik, dokumentanalyse, kodningsidentifikation, videosteganografi, GIF-analyse, netværkssteganografi, MP3-analyse, spread spectrum-detektion, BPCS-analyse, arkivsteganografi, skabelse og indlejring samt QR-kodesteganografi &mdash; alt sammen i én samtale, alt kørende 100% lokalt uden afhængigheder af eksterne tjenester.
 
 ```
 Med steganography-mcp:
@@ -131,7 +131,7 @@ De fleste steganografiværktøjer er enkeltformålsredskaber. steganography-mcp 
 <tr>
 <td><b>Dækning</b></td>
 <td>Én teknik ad gangen</td>
-<td>7 kategorier, 60 værktøjer parallelt</td>
+<td>17 kategorier, 128 værktøjer parallelt</td>
 </tr>
 <tr>
 <td><b>Billedanalyse</b></td>
@@ -181,7 +181,7 @@ De fleste steganografiværktøjer er enkeltformålsredskaber. steganography-mcp 
 npx -y steganography-mcp
 ```
 
-Alle 60 værktøjer virker med det samme. Ingen API-nøgler. Ingen konfiguration. 100% offline.
+Alle 128 værktøjer virker med det samme. Ingen API-nøgler. Ingen konfiguration. 100% offline.
 
 ### Mulighed 2: bunx (hurtigere)
 
@@ -337,7 +337,7 @@ Agent: -> jpeg_structure: 14 markører parset, normal JFIF-struktur
 
 ---
 
-## Værktøjsreference (60 værktøjer)
+## Værktøjsreference (128 værktøjer)
 
 ### Kategorioversigt
 
@@ -350,6 +350,16 @@ Agent: -> jpeg_structure: 14 markører parset, normal JFIF-struktur
 | [Filforensik](#-filforensik-10) | 10 | Magiske bytes, polyglotdetektion, indlejrede filer, vedhæftede data, entropi, hex-dump, strenge, headere |
 | [Dokumentanalyse](#-dokumentanalyse-5) | 5 | PDF skjult indhold, PDF-metadata, PDF-streams, HTML skjult indhold, XML-metadata |
 | [Kodning & Krypto](#-kodning--krypto-7) | 7 | Kodningsdetektion, multiformatafkoder, frekvensanalyse, entropi, XOR brute-force, hash-ID, krypteringsmønstre |
+| [Avanceret JPEG](#-avanceret-jpeg-7) | 7 | F5, JSteg, OutGuess, PVD-detektion, glidende vindue chi-kvadrat, crop-rekalibrerings steganalyse, værktøjskompatibilitet |
+| [Videosteganografi](#-videosteganografi-8) | 8 | AVI-frame LSB, inter-frame analyse, framesammenligning, metadata, struktur, EOF-data |
+| [GIF-steganografi](#-gif-steganografi-8) | 8 | Palette-LSB, LZW sub-blok entropi, kommentar-extensions, applikation-extensions, frameanalyse |
+| [Netværkssteganografi](#-netværkssteganografi-8) | 8 | PCAP skjulte kanaler, IP/TCP-headeranalyse, ICMP-payloads, DNS-tunneling, HTTP-headere, timing |
+| [MP3-steganografi](#-mp3-steganografi-7) | 7 | ID3 skjulte data, frameanalyse, padding-manipulation, sampleanalyse, metadata, struktur |
+| [Spread Spectrum](#-spread-spectrum-5) | 5 | DFT magnitudespektrum, autokorrelation, vandmærkedetektion, støjgulvsanalyse, patchwork-detektion |
+| [BPCS-analyse](#-bpcs-analyse-5) | 5 | Bitplan-kompleksitetssegmentering, kompleksitetskortlægning, tærskelanalyse, dataudtræk, kapacitetsestimering |
+| [Arkivsteganografi](#-arkivsteganografi-7) | 7 | ZIP slack-pladser, ekstrafelter, kommentarer, polyglotdetektion, strukturanalyse, metadata |
+| [Skab & Indlejr](#-skab--indlejr-7) | 7 | EOF-injektion, metadata-injektion, mellemrumskodning, null-chiffer, polyglotskabelse, kommentarinjektion, paletteindlejring |
+| [QR-kodesteganografi](#-qr-kodesteganografi-6) | 6 | QR stego-detektion, strukturanalyse, ECC-kapacitet, modulanalyse, dataudtræk, sammenligning |
 
 ---
 
@@ -477,7 +487,7 @@ Agent: -> jpeg_structure: 14 markører parset, normal JFIF-struktur
 # Vis hjælp
 npx -y steganography-mcp --help
 
-# List alle 60 værktøjer med beskrivelser
+# List alle 128 værktøjer med beskrivelser
 npx -y steganography-mcp --list
 
 # Detektér steganografi i et billede
@@ -557,7 +567,7 @@ src/
   index.ts                    # CLI-indgangspunkt (--help, --list, --tool, stdio-server)
   protocol/
     mcp-server.ts             # MCP-serveropsætning (stdio transport)
-    tools.ts                  # Værktøjsregister — alle 60 værktøjer samlet her
+    tools.ts                  # Værktøjsregister — alle 128 værktøjer samlet her
   types/
     index.ts                  # Delte typer (ToolDef, ToolContext, ToolResult)
   utils/
@@ -568,13 +578,28 @@ src/
     jpeg-parser.ts            # Ren TS JPEG-parser (markører, EXIF, kvantisering)
     wav-parser.ts             # Ren TS WAV-parser (RIFF-chunks, PCM-samples)
     bmp-parser.ts             # Ren TS BMP-parser (header, pixeldata)
+    avi-parser.ts             # Ren TS AVI-parser (frames, headere)
+    gif-parser.ts             # Ren TS GIF-parser (palette, LZW-blokke)
+    pcap-parser.ts            # Ren TS PCAP-parser (pakker, headere)
+    mp3-parser.ts             # Ren TS MP3-parser (frames, ID3-tags)
+    zip-parser.ts             # Ren TS ZIP-parser (lokale headere, central directory)
   image/                      # Billedsteganalyseværktøjer (14)
   jpeg/                       # JPEG-analyseværktøjer (7)
+  jpegadv/                    # Avancerede JPEG-værktøjer (7)
   audio/                      # Lydsteganalyseværktøjer (7)
   text/                       # Tekst & Unicode-værktøjer (10)
   file/                       # Filforensikværktøjer (10)
   document/                   # Dokumentanalyseværktøjer (5)
   crypto/                     # Kodning & Kryptoværktøjer (7)
+  video/                      # Videosteganografiværktøjer (8)
+  gif/                        # GIF-steganografiværktøjer (8)
+  network/                    # Netværkssteganografiværktøjer (8)
+  mp3/                        # MP3-steganografiværktøjer (7)
+  spread/                     # Spread Spectrum-værktøjer (5)
+  bpcs/                       # BPCS-analyseværktøjer (5)
+  archive/                    # Arkivsteganografiværktøjer (7)
+  create/                     # Skab & Indlejr-værktøjer (7)
+  qrcode/                     # QR-kodesteganografiværktøjer (6)
   data/
     encoding-patterns.ts      # Kodnings-regexmønstre + afkodere
     magic-bytes.ts            # Filsignaturdatabase (100+ formater)
@@ -588,7 +613,7 @@ src/
 - **100% offline** &mdash; Alle værktøjer kører helt lokalt. Ingen HTTP-forespørgsler. Ingen API-kald. Ingen telemetri. Ingen cloud-afhængigheder. Dine filer forlader aldrig din maskine.
 - **Ren TypeScript statistisk analyse** &mdash; Chi-kvadrat test, RS-analyse (Fridrich-Goljan-Du), Sample Pair Analysis, Shannon-entropi, Index of Coincidence og frekvensanalyse er alle implementeret i ren TypeScript. Ingen eksterne matematikbiblioteker.
 - **Brugerdefinerede formatparsere** &mdash; PNG-chunks, JPEG-markører/EXIF/kvantiseringstabeller, WAV RIFF-chunks og BMP-headere parses med nul eksterne afhængigheder via `utils/`-parserne. Dette muliggør dyb formatspecifik analyse som generelle biblioteker ikke kan levere.
-- **7 udbydere, 1 server** &mdash; Hver analysekategori er et uafhængigt modul. AI-agenten vælger hvilke værktøjer der skal bruges baseret på undersøgelseskonteksten.
+- **17 udbydere, 1 server** &mdash; Hver analysekategori er et uafhængigt modul. AI-agenten vælger hvilke værktøjer der skal bruges baseret på undersøgelseskonteksten.
 - **Rent ToolDef-mønster** &mdash; Hvert værktøj følger det samme `{ name, description, schema, execute }`-mønster. At tilføje et nyt værktøj er ét enkelt objekt i det relevante modul.
 - **Zod-validering på hvert felt** &mdash; Hvert skemafelt har `.describe()` til AI-agentkontekst. Ugyldige inputs fanges før udførelse med klare fejlmeddelelser.
 
@@ -605,7 +630,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT & rekognoscering | 37 værktøjer |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | Dark web & trusselsintelligens | 66 værktøjer |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | DNS-sikkerhedsintelligens | 103 værktøjer |
-| **steganography-mcp** | **Steganografianalyse** | **60 værktøjer** |
+| **steganography-mcp** | **Steganografianalyse** | **128 værktøjer** |
 
 ---
 

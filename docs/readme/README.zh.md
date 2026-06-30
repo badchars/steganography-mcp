@@ -36,8 +36,8 @@
 <h3 align="center">面向 AI 智能体的最全面隐写术分析工具包。</h3>
 
 <p align="center">
-  LSB 检测、卡方隐写分析、RS 分析、DCT 取证、音频隐写术、零宽文本编码、文件取证、多格式文件检测、编码识别 &mdash; 统一集成到单个 MCP 服务器中。<br>
-  <b>60 个工具。7 大类别。4 个依赖。100% 离线运行。</b>无需 API 密钥。所有工具均在本地执行。
+  LSB 检测、卡方隐写分析、RS 分析、DCT 取证、音频隐写术、零宽文本编码、文件取证、多格式文件检测、编码识别、视频与 GIF 隐写、网络隐蔽通道、MP3 分析、BPCS 与扩频、压缩包隐写、QR 码隐写、创建与嵌入 &mdash; 统一集成到单个 MCP 服务器中。<br>
+  <b>128 个工具。17 大类别。4 个依赖。100% 离线运行。</b>无需 API 密钥。所有工具均在本地执行。
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#有何不同">有何不同</a> &bull;
   <a href="#快速开始">快速开始</a> &bull;
   <a href="#ai-能做什么">AI 能做什么</a> &bull;
-  <a href="#工具参考60-个工具">工具 (60)</a> &bull;
+  <a href="#工具参考128-个工具">工具 (128)</a> &bull;
   <a href="#cli-用法">CLI 用法</a> &bull;
   <a href="#架构">架构</a> &bull;
   <a href="../../CONTRIBUTING.md">贡献指南</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP Compatible">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Tools">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Tools">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Zero API Keys">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub stars"></a>
@@ -87,7 +87,7 @@
   总计：10+ 个工具，5+ 种语言，数小时手动关联
 ```
 
-**steganography-mcp** 通过 [Model Context Protocol](https://modelcontextprotocol.io) 为你的 AI 智能体提供跨 7 大类别的 60 个工具。智能体可以执行图像隐写分析、JPEG 取证、音频分析、文本隐写检测、文件取证、文档分析和编码识别 &mdash; 全部在一次对话中完成，100% 本地运行，完全不依赖外部服务。
+**steganography-mcp** 通过 [Model Context Protocol](https://modelcontextprotocol.io) 为你的 AI 智能体提供跨 17 大类别的 128 个工具。智能体可以执行图像隐写分析、JPEG 取证、音频分析、文本隐写检测、文件取证、文档分析、编码识别、视频与 GIF 隐写、网络隐蔽通道、MP3 分析、BPCS 与扩频分析、压缩包隐写、QR 码隐写和创建与嵌入 &mdash; 全部在一次对话中完成，100% 本地运行，完全不依赖外部服务。
 
 ```
 使用 steganography-mcp：
@@ -130,7 +130,7 @@
 <tr>
 <td><b>覆盖范围</b></td>
 <td>一次只能用一种技术</td>
-<td>7 大类别，60 个工具并行运行</td>
+<td>17 大类别，128 个工具并行运行</td>
 </tr>
 <tr>
 <td><b>图像分析</b></td>
@@ -180,7 +180,7 @@
 npx -y steganography-mcp
 ```
 
-全部 60 个工具即刻可用。无需 API 密钥。无需配置。100% 离线运行。
+全部 128 个工具即刻可用。无需 API 密钥。无需配置。100% 离线运行。
 
 ### 方式二：bunx（更快）
 
@@ -334,7 +334,7 @@ claude mcp add steganography -- bun run /path/to/steganography-mcp/src/index.ts
 
 ---
 
-## 工具参考（60 个工具）
+## 工具参考（128 个工具）
 
 ### 类别概览
 
@@ -347,6 +347,16 @@ claude mcp add steganography -- bun run /path/to/steganography-mcp/src/index.ts
 | [文件取证](#-文件取证10) | 10 | 魔术字节、多格式文件检测、嵌入文件、附加数据、熵值、十六进制转储、字符串、文件头 |
 | [文档分析](#-文档分析5) | 5 | PDF 隐藏内容、PDF 元数据、PDF 流、HTML 隐藏内容、XML 元数据 |
 | [编码与密码](#-编码与密码7) | 7 | 编码检测、多格式解码器、频率分析、熵值、XOR 暴力破解、哈希识别、密码模式 |
+| 高级 JPEG | 7 | F5、JSteg、OutGuess、PVD 检测、滑动窗口卡方检验、裁剪重校准隐写分析、工具兼容性 |
+| 视频隐写术 | 8 | AVI 帧 LSB、帧间分析、帧比较、元数据、结构、EOF 数据 |
+| GIF 隐写术 | 8 | 调色板 LSB、LZW 子块熵、注释扩展、应用扩展、帧分析 |
+| 网络隐写术 | 8 | PCAP 隐蔽通道、IP/TCP 头分析、ICMP 载荷、DNS 隧道、HTTP 头、时序分析 |
+| MP3 隐写术 | 7 | ID3 隐藏数据、帧分析、填充操纵、采样分析、元数据、结构 |
+| 扩频分析 | 5 | DFT 幅度谱、自相关、水印检测、噪声底分析、Patchwork 检测 |
+| BPCS 分析 | 5 | 位平面复杂度分割、复杂度映射、阈值分析、数据提取、容量估算 |
+| 压缩包隐写术 | 7 | ZIP 松弛空间、额外字段、注释、多格式文件检测、结构分析、元数据 |
+| 创建与嵌入 | 7 | EOF 注入、元数据注入、空白编码、空密码、多格式文件创建、注释注入、调色板嵌入 |
+| QR 码隐写术 | 6 | QR 隐写检测、结构分析、ECC 容量、模块分析、数据提取、比较 |
 
 ---
 
@@ -474,7 +484,7 @@ claude mcp add steganography -- bun run /path/to/steganography-mcp/src/index.ts
 # 显示帮助
 npx -y steganography-mcp --help
 
-# 列出所有 60 个工具及其描述
+# 列出所有 128 个工具及其描述
 npx -y steganography-mcp --list
 
 # 检测图像中的隐写术
@@ -554,17 +564,22 @@ src/
   index.ts                    # CLI 入口（--help、--list、--tool、stdio 服务器）
   protocol/
     mcp-server.ts             # MCP 服务器设置（stdio 传输）
-    tools.ts                  # 工具注册表 — 所有 60 个工具在此组装
+    tools.ts                  # 工具注册表 — 所有 128 个工具在此组装
   types/
     index.ts                  # 共享类型（ToolDef、ToolContext、ToolResult）
   utils/
     binary.ts                 # 二进制文件读取、十六进制转储、格式检测
-    stats.ts                  # 香农熵、卡方检验、字节频率
+    stats.ts                  # 香农熵、卡方检验、字节频率、DFT、自相关、BPCS 复杂度、Patchwork 检测
     cache.ts                  # TTL 缓存
     png-parser.ts             # 纯 TS PNG 解析器（IHDR、块、像素数据）
     jpeg-parser.ts            # 纯 TS JPEG 解析器（标记、EXIF、量化）
     wav-parser.ts             # 纯 TS WAV 解析器（RIFF 块、PCM 采样）
     bmp-parser.ts             # 纯 TS BMP 解析器（文件头、像素数据）
+    avi-parser.ts             # 纯 TS AVI 解析器（帧、结构）
+    gif-parser.ts             # 纯 TS GIF 解析器（调色板、帧、扩展）
+    pcap-parser.ts            # 纯 TS PCAP 解析器（数据包、头部）
+    mp3-parser.ts             # 纯 TS MP3 解析器（帧、ID3、采样）
+    zip-parser.ts             # 纯 TS ZIP 解析器（结构、松弛空间）
   image/                      # 图像隐写分析工具（14）
   jpeg/                       # JPEG 分析工具（7）
   audio/                      # 音频隐写分析工具（7）
@@ -572,6 +587,16 @@ src/
   file/                       # 文件取证工具（10）
   document/                   # 文档分析工具（5）
   crypto/                     # 编码与密码工具（7）
+  jpegadv/                    # 高级 JPEG 工具（7）
+  video/                      # 视频隐写术工具（8）
+  gif/                        # GIF 隐写术工具（8）
+  network/                    # 网络隐写术工具（8）
+  mp3/                        # MP3 隐写术工具（7）
+  spread/                     # 扩频分析工具（5）
+  bpcs/                       # BPCS 分析工具（5）
+  archive/                    # 压缩包隐写术工具（7）
+  create/                     # 创建与嵌入工具（7）
+  qrcode/                     # QR 码隐写术工具（6）
   data/
     encoding-patterns.ts      # 编码正则模式 + 解码器
     magic-bytes.ts            # 文件签名数据库（100+ 种格式）
@@ -585,7 +610,7 @@ src/
 - **100% 离线** &mdash; 所有工具完全在本地运行。无 HTTP 请求。无 API 调用。无遥测。无云依赖。你的文件永远不会离开你的机器。
 - **纯 TypeScript 统计分析** &mdash; 卡方检验、RS 分析（Fridrich-Goljan-Du）、样本对分析、香农熵、重合指数和频率分析均以纯 TypeScript 实现。无外部数学库。
 - **自定义格式解析器** &mdash; PNG 块、JPEG 标记/EXIF/量化表、WAV RIFF 块和 BMP 文件头均使用 `utils/` 解析器以零外部依赖进行解析。这使得通用库无法提供的格式特定深度分析成为可能。
-- **7 个提供者，1 个服务器** &mdash; 每个分析类别都是独立的模块。AI 智能体根据调查上下文选择使用哪些工具。
+- **17 个提供者，1 个服务器** &mdash; 每个分析类别都是独立的模块。AI 智能体根据调查上下文选择使用哪些工具。
 - **统一的 ToolDef 模式** &mdash; 每个工具都遵循相同的 `{ name, description, schema, execute }` 模式。添加新工具只需在相应模块中创建一个对象。
 - **每个字段都有 Zod 验证** &mdash; 每个 schema 字段都有 `.describe()` 为 AI 智能体提供上下文。无效输入在执行前被捕获，并提供清晰的错误消息。
 
@@ -602,7 +627,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT 与侦察 | 37 |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | 暗网与威胁情报 | 66 |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | DNS 安全情报 | 103 |
-| **steganography-mcp** | **隐写术分析** | **60** |
+| **steganography-mcp** | **隐写术分析** | **128** |
 
 ---
 

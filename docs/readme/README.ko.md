@@ -36,8 +36,8 @@
 <h3 align="center">AI 에이전트를 위한 가장 포괄적인 스테가노그래피 분석 툴킷.</h3>
 
 <p align="center">
-  LSB 탐지, 카이제곱 스테그분석, RS 분석, DCT 포렌식, 오디오 스테가노그래피, 제로 너비 텍스트 인코딩, 파일 포렌식, 폴리글롯 탐지, 인코딩 식별 &mdash; 하나의 MCP 서버로 통합.<br>
-  <b>60개 도구. 7개 카테고리. 4개 의존성. 100% 오프라인.</b> API 키 불필요. 모든 도구가 로컬에서 실행됩니다.
+  LSB 탐지, 카이제곱 스테그분석, RS 분석, DCT 포렌식, 오디오 스테가노그래피, 제로 너비 텍스트 인코딩, 파일 포렌식, 폴리글롯 탐지, 인코딩 식별, 비디오 & GIF 스테고, 네트워크 은닉 채널, MP3 분석, BPCS & 확산 스펙트럼, 아카이브 스테고, QR 코드 스테고, 생성 & 임베딩 &mdash; 하나의 MCP 서버로 통합.<br>
+  <b>128개 도구. 17개 카테고리. 4개 의존성. 100% 오프라인.</b> API 키 불필요. 모든 도구가 로컬에서 실행됩니다.
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#무엇이-다른가">무엇이 다른가</a> &bull;
   <a href="#빠른-시작">빠른 시작</a> &bull;
   <a href="#ai가-할-수-있는-것">AI가 할 수 있는 것</a> &bull;
-  <a href="#도구-레퍼런스60개-도구">도구 (60)</a> &bull;
+  <a href="#도구-레퍼런스128개-도구">도구 (128)</a> &bull;
   <a href="#cli-사용법">CLI 사용법</a> &bull;
   <a href="#아키텍처">아키텍처</a> &bull;
   <a href="../../CONTRIBUTING.md">기여 가이드</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP Compatible">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Tools">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Tools">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Zero API Keys">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub stars"></a>
@@ -87,7 +87,7 @@
   합계: 10개 이상 도구, 5개 이상 언어, 수 시간의 수동 상관 분석
 ```
 
-**steganography-mcp**는 [Model Context Protocol](https://modelcontextprotocol.io)을 통해 AI 에이전트에게 7개 카테고리에 걸친 60개 도구를 제공합니다. 에이전트는 이미지 스테그분석, JPEG 포렌식, 오디오 분석, 텍스트 스테가노그래피 탐지, 파일 포렌식, 문서 분석, 인코딩 식별을 수행합니다 &mdash; 모두 하나의 대화에서, 100% 로컬로, 외부 서비스에 대한 의존성 없이 실행됩니다.
+**steganography-mcp**는 [Model Context Protocol](https://modelcontextprotocol.io)을 통해 AI 에이전트에게 17개 카테고리에 걸친 128개 도구를 제공합니다. 에이전트는 이미지 스테그분석, JPEG 포렌식, 오디오 분석, 텍스트 스테가노그래피 탐지, 파일 포렌식, 문서 분석, 인코딩 식별, 비디오 & GIF 스테고, 네트워크 은닉 채널, MP3 분석, BPCS & 확산 스펙트럼 분석, 아카이브 스테고, QR 코드 스테고, 생성 & 임베딩을 수행합니다 &mdash; 모두 하나의 대화에서, 100% 로컬로, 외부 서비스에 대한 의존성 없이 실행됩니다.
 
 ```
 steganography-mcp 사용 시:
@@ -132,7 +132,7 @@ steganography-mcp 사용 시:
 <tr>
 <td><b>커버리지</b></td>
 <td>한 번에 하나의 기법만</td>
-<td>7개 카테고리, 60개 도구 병렬 실행</td>
+<td>17개 카테고리, 128개 도구 병렬 실행</td>
 </tr>
 <tr>
 <td><b>이미지 분석</b></td>
@@ -182,7 +182,7 @@ steganography-mcp 사용 시:
 npx -y steganography-mcp
 ```
 
-60개 도구 모두 즉시 사용 가능. API 키 불필요. 설정 불필요. 100% 오프라인.
+128개 도구 모두 즉시 사용 가능. API 키 불필요. 설정 불필요. 100% 오프라인.
 
 ### 옵션 2: bunx (더 빠름)
 
@@ -342,7 +342,7 @@ claude mcp add steganography -- bun run /path/to/steganography-mcp/src/index.ts
 
 ---
 
-## 도구 레퍼런스 (60개 도구)
+## 도구 레퍼런스 (128개 도구)
 
 ### 카테고리 개요
 
@@ -355,6 +355,16 @@ claude mcp add steganography -- bun run /path/to/steganography-mcp/src/index.ts
 | [파일 포렌식](#-파일-포렌식-10) | 10 | 매직 바이트, 폴리글롯 탐지, 임베디드 파일, 부가 데이터, 엔트로피, 헥스 덤프, 문자열, 헤더 |
 | [문서 분석](#-문서-분석-5) | 5 | PDF 숨겨진 콘텐츠, PDF 메타데이터, PDF 스트림, HTML 숨겨진 콘텐츠, XML 메타데이터 |
 | [인코딩 & 암호](#-인코딩--암호-7) | 7 | 인코딩 탐지, 다중 포맷 디코더, 빈도 분석, 엔트로피, XOR 브루트포스, 해시 식별, 암호 패턴 |
+| 고급 JPEG | 7 | F5, JSteg, OutGuess, PVD 탐지, 슬라이딩 윈도우 카이제곱, 크롭-재보정 스테그분석, 도구 호환성 |
+| 비디오 스테가노그래피 | 8 | AVI 프레임 LSB, 인터프레임 분석, 프레임 비교, 메타데이터, 구조, EOF 데이터 |
+| GIF 스테가노그래피 | 8 | 팔레트 LSB, LZW 서브블록 엔트로피, 코멘트 확장, 애플리케이션 확장, 프레임 분석 |
+| 네트워크 스테가노그래피 | 8 | PCAP 은닉 채널, IP/TCP 헤더 분석, ICMP 페이로드, DNS 터널링, HTTP 헤더, 타이밍 |
+| MP3 스테가노그래피 | 7 | ID3 숨겨진 데이터, 프레임 분석, 패딩 조작, 샘플 분석, 메타데이터, 구조 |
+| 확산 스펙트럼 | 5 | DFT 크기 스펙트럼, 자기상관, 워터마크 탐지, 노이즈 플로어 분석, 패치워크 탐지 |
+| BPCS 분석 | 5 | 비트 플레인 복잡도 분할, 복잡도 매핑, 임계값 분석, 데이터 추출, 용량 추정 |
+| 아카이브 스테가노그래피 | 7 | ZIP 슬랙 공간, 추가 필드, 코멘트, 폴리글롯 탐지, 구조 분석, 메타데이터 |
+| 생성 & 임베딩 | 7 | EOF 주입, 메타데이터 주입, 공백 인코딩, 널 사이퍼, 폴리글롯 생성, 코멘트 주입, 팔레트 임베딩 |
+| QR 코드 스테가노그래피 | 6 | QR 스테고 탐지, 구조 분석, ECC 용량, 모듈 분석, 데이터 추출, 비교 |
 
 ---
 
@@ -482,7 +492,7 @@ claude mcp add steganography -- bun run /path/to/steganography-mcp/src/index.ts
 # 도움말 표시
 npx -y steganography-mcp --help
 
-# 60개 도구 전체 목록과 설명 표시
+# 128개 도구 전체 목록과 설명 표시
 npx -y steganography-mcp --list
 
 # 이미지에서 스테가노그래피 탐지
@@ -562,17 +572,22 @@ src/
   index.ts                    # CLI 진입점 (--help, --list, --tool, stdio 서버)
   protocol/
     mcp-server.ts             # MCP 서버 설정 (stdio 전송)
-    tools.ts                  # 도구 레지스트리 — 60개 도구 전체가 여기서 조립
+    tools.ts                  # 도구 레지스트리 — 128개 도구 전체가 여기서 조립
   types/
     index.ts                  # 공유 타입 (ToolDef, ToolContext, ToolResult)
   utils/
     binary.ts                 # 바이너리 파일 읽기, 헥스 덤프, 포맷 감지
-    stats.ts                  # Shannon 엔트로피, 카이제곱, 바이트 빈도
+    stats.ts                  # Shannon 엔트로피, 카이제곱, 바이트 빈도, DFT, 자기상관, BPCS 복잡도, 패치워크 테스트
     cache.ts                  # TTL 캐시
     png-parser.ts             # 순수 TS PNG 파서 (IHDR, 청크, 픽셀 데이터)
     jpeg-parser.ts            # 순수 TS JPEG 파서 (마커, EXIF, 양자화)
     wav-parser.ts             # 순수 TS WAV 파서 (RIFF 청크, PCM 샘플)
     bmp-parser.ts             # 순수 TS BMP 파서 (헤더, 픽셀 데이터)
+    avi-parser.ts             # 순수 TS AVI 파서 (프레임, 구조)
+    gif-parser.ts             # 순수 TS GIF 파서 (팔레트, 프레임, 확장)
+    pcap-parser.ts            # 순수 TS PCAP 파서 (패킷, 헤더)
+    mp3-parser.ts             # 순수 TS MP3 파서 (프레임, ID3, 샘플)
+    zip-parser.ts             # 순수 TS ZIP 파서 (구조, 슬랙 공간)
   image/                      # 이미지 스테그분석 도구 (14)
   jpeg/                       # JPEG 분석 도구 (7)
   audio/                      # 오디오 스테그분석 도구 (7)
@@ -580,6 +595,16 @@ src/
   file/                       # 파일 포렌식 도구 (10)
   document/                   # 문서 분석 도구 (5)
   crypto/                     # 인코딩 & 암호 도구 (7)
+  jpegadv/                    # 고급 JPEG (7)
+  video/                      # 비디오 스테가노그래피 (8)
+  gif/                        # GIF 스테가노그래피 (8)
+  network/                    # 네트워크 스테가노그래피 (8)
+  mp3/                        # MP3 스테가노그래피 (7)
+  spread/                     # 확산 스펙트럼 (5)
+  bpcs/                       # BPCS 분석 (5)
+  archive/                    # 아카이브 스테가노그래피 (7)
+  create/                     # 생성 & 임베딩 (7)
+  qrcode/                     # QR 코드 스테가노그래피 (6)
   data/
     encoding-patterns.ts      # 인코딩 정규식 패턴 + 디코더
     magic-bytes.ts            # 파일 시그니처 데이터베이스 (100+ 포맷)
@@ -593,7 +618,7 @@ src/
 - **100% 오프라인** &mdash; 모든 도구가 완전히 로컬에서 실행. HTTP 요청 없음. API 호출 없음. 텔레메트리 없음. 클라우드 의존성 없음. 파일이 절대로 기기를 떠나지 않습니다.
 - **순수 TypeScript 통계 분석** &mdash; 카이제곱 검정, RS 분석 (Fridrich-Goljan-Du), 샘플 쌍 분석, Shannon 엔트로피, 일치 지수, 빈도 분석이 모두 순수 TypeScript로 구현. 외부 수학 라이브러리 없음.
 - **커스텀 포맷 파서** &mdash; PNG 청크, JPEG 마커/EXIF/양자화 테이블, WAV RIFF 청크, BMP 헤더가 `utils/` 파서를 사용하여 외부 의존성 없이 파싱. 이를 통해 범용 라이브러리가 제공할 수 없는 포맷별 심층 분석이 가능합니다.
-- **7개 프로바이더, 1개 서버** &mdash; 각 분석 카테고리가 독립 모듈. AI 에이전트가 조사 컨텍스트에 따라 사용할 도구를 선택합니다.
+- **17개 프로바이더, 1개 서버** &mdash; 각 분석 카테고리가 독립 모듈. AI 에이전트가 조사 컨텍스트에 따라 사용할 도구를 선택합니다.
 - **일관된 ToolDef 패턴** &mdash; 모든 도구가 동일한 `{ name, description, schema, execute }` 패턴을 따름. 새 도구 추가는 해당 모듈에 하나의 객체를 만드는 것으로 완료됩니다.
 - **모든 필드에 Zod 검증** &mdash; 모든 스키마 필드에 `.describe()`가 있어 AI 에이전트에 컨텍스트 제공. 잘못된 입력은 실행 전에 명확한 에러 메시지와 함께 포착됩니다.
 
@@ -610,7 +635,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT & 정찰 | 37 |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | 다크웹 & 위협 인텔리전스 | 66 |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | DNS 보안 인텔리전스 | 103 |
-| **steganography-mcp** | **스테가노그래피 분석** | **60** |
+| **steganography-mcp** | **스테가노그래피 분석** | **128** |
 
 ---
 

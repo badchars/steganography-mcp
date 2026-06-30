@@ -36,8 +36,8 @@
 <h3 align="center">Najbardziej wszechstronny zestaw narzedzi do analizy steganografii dla agentow AI.</h3>
 
 <p align="center">
-  Detekcja LSB, steganaliza chi-kwadrat, analiza RS, forensyka DCT, steganografia audio, kodowanie zero-width w tekscie, forensyka plikow, detekcja poliglotow, identyfikacja kodowania &mdash; wszystko w jednym serwerze MCP.<br>
-  <b>60 narzedzi. 7 kategorii. 4 zaleznosci. 100% offline.</b> Zero kluczy API. Kazde narzedzie dziala lokalnie.
+  Detekcja LSB, steganaliza chi-kwadrat, analiza RS, forensyka DCT, steganografia audio, kodowanie zero-width w tekscie, forensyka plikow, detekcja poliglotow, identyfikacja kodowania, steganografia wideo, analiza GIF, steganografia sieciowa, analiza MP3, spread spectrum, BPCS, steganografia archiwow, steganografia kodow QR &mdash; wszystko w jednym serwerze MCP.<br>
+  <b>128 narzedzi. 17 kategorii. 4 zaleznosci. 100% offline.</b> Zero kluczy API. Kazde narzedzie dziala lokalnie.
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#czym-sie-rozni">Czym sie rozni</a> &bull;
   <a href="#szybki-start">Szybki start</a> &bull;
   <a href="#co-potrafi-agent-ai">Co potrafi agent AI</a> &bull;
-  <a href="#dokumentacja-narzedzi-60-narzedzi">Narzedzia (60)</a> &bull;
+  <a href="#dokumentacja-narzedzi-128-narzedzi">Narzedzia (128)</a> &bull;
   <a href="#uzycie-cli">Uzycie CLI</a> &bull;
   <a href="#architektura">Architektura</a> &bull;
   <a href="../../CONTRIBUTING.md">Wspoltworz</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP Compatible">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Tools">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Tools">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Zero API Keys">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub stars"></a>
@@ -87,7 +87,7 @@ Tradycyjny przeplyw pracy analizy steganografii:
   Razem: 10+ narzedzi, 5+ jezykow, godziny recznej korelacji
 ```
 
-**steganography-mcp** daje Twojemu agentowi AI 60 narzedzi w 7 kategoriach poprzez [Model Context Protocol](https://modelcontextprotocol.io). Agent przeprowadza steganalze obrazow, forensyke JPEG, analize audio, detekcje steganografii tekstowej, forensyke plikow, analize dokumentow i identyfikacje kodowania &mdash; wszystko w jednej rozmowie, wszystko dzialajace 100% lokalnie bez zaleznosci od uslug zewnetrznych.
+**steganography-mcp** daje Twojemu agentowi AI 128 narzedzi w 17 kategoriach poprzez [Model Context Protocol](https://modelcontextprotocol.io). Agent przeprowadza steganalze obrazow, forensyke JPEG, zaawansowana detekcje JPEG, analize audio, detekcje steganografii tekstowej, forensyke plikow, analize dokumentow, identyfikacje kodowania, steganografie wideo, analize GIF, steganografie sieciowa, analize MP3, detekcje spread spectrum, analize BPCS, steganografie archiwow, tworzenie i osadzanie oraz steganografie kodow QR &mdash; wszystko w jednej rozmowie, wszystko dzialajace 100% lokalnie bez zaleznosci od uslug zewnetrznych.
 
 ```
 Z steganography-mcp:
@@ -131,7 +131,7 @@ Wiekszsc narzedzi steganograficznych to narzeadzia jednofunkcyjne. steganography
 <tr>
 <td><b>Pokrycie</b></td>
 <td>Jedna technika na raz</td>
-<td>7 kategorii, 60 narzedzi rownolegle</td>
+<td>17 kategorii, 128 narzedzi rownolegle</td>
 </tr>
 <tr>
 <td><b>Analiza obrazu</b></td>
@@ -181,7 +181,7 @@ Wiekszsc narzedzi steganograficznych to narzeadzia jednofunkcyjne. steganography
 npx -y steganography-mcp
 ```
 
-Wszystkie 60 narzedzi dziala natychmiast. Bez kluczy API. Bez konfiguracji. 100% offline.
+Wszystkie 128 narzedzi dziala natychmiast. Bez kluczy API. Bez konfiguracji. 100% offline.
 
 ### Opcja 2: bunx (szybciej)
 
@@ -338,7 +338,7 @@ Agent: -> jpeg_structure: 14 znacznikow sparsowanych, normalna struktura JFIF
 
 ---
 
-## Dokumentacja narzedzi (60 narzedzi)
+## Dokumentacja narzedzi (128 narzedzi)
 
 ### Przeglad kategorii
 
@@ -351,6 +351,16 @@ Agent: -> jpeg_structure: 14 znacznikow sparsowanych, normalna struktura JFIF
 | [Forensyka plikow](#-forensyka-plikow-10) | 10 | Magiczne bajty, detekcja poliglotow, osadzone pliki, dolaczone dane, entropia, hex dump, lancuchy znakow, naglowki |
 | [Analiza dokumentow](#-analiza-dokumentow-5) | 5 | Ukryte tresci PDF, metadane PDF, strumienie PDF, ukryte tresci HTML, metadane XML |
 | [Kodowanie i krypto](#-kodowanie--krypto-7) | 7 | Detekcja kodowania, dekoder wieloformatowy, analiza czestotliwosci, entropia, brute-force XOR, identyfikacja hashy, wzorce szyfrow |
+| [Zaawansowany JPEG](#-zaawansowany-jpeg-7) | 7 | F5, JSteg, OutGuess, detekcja PVD, przesuwne okno chi-kwadrat, steganaliza crop-rekalibracji, kompatybilnosc narzedzi |
+| [Steganografia wideo](#-steganografia-wideo-8) | 8 | AVI frame LSB, analiza miedzy-klatkami, porownanie klatek, metadane, struktura, dane EOF |
+| [Steganografia GIF](#-steganografia-gif-8) | 8 | Paleta LSB, entropia sub-blokow LZW, rozszerzenia komentarzy, rozszerzenia aplikacji, analiza klatek |
+| [Steganografia sieciowa](#-steganografia-sieciowa-8) | 8 | Ukryte kanaly PCAP, analiza naglowkow IP/TCP, payloady ICMP, tunelowanie DNS, naglowki HTTP, timing |
+| [Steganografia MP3](#-steganografia-mp3-7) | 7 | Ukryte dane ID3, analiza ramek, manipulacja paddingiem, analiza probek, metadane, struktura |
+| [Spread Spectrum](#-spread-spectrum-5) | 5 | Widmo amplitudowe DFT, autokorelacja, detekcja znakow wodnych, analiza poziomu szumu, detekcja patchwork |
+| [Analiza BPCS](#-analiza-bpcs-5) | 5 | Segmentacja zlozonosci plaszczyzn bitowych, mapowanie zlozonosci, analiza progu, ekstrakcja danych, estymacja pojemnosci |
+| [Steganografia archiwow](#-steganografia-archiwow-7) | 7 | Wolne przestrzenie ZIP, dodatkowe pola, komentarze, detekcja poliglotow, analiza struktury, metadane |
+| [Tworzenie i osadzanie](#-tworzenie-i-osadzanie-7) | 7 | Iniekcja EOF, iniekcja metadanych, kodowanie bialymi znakami, szyfr zerowy, tworzenie poliglotow, iniekcja komentarzy, osadzanie w palecie |
+| [Steganografia kodow QR](#-steganografia-kodow-qr-6) | 6 | Detekcja stego QR, analiza struktury, pojemnosc ECC, analiza modulow, ekstrakcja danych, porownanie |
 
 ---
 
@@ -478,7 +488,7 @@ Agent: -> jpeg_structure: 14 znacznikow sparsowanych, normalna struktura JFIF
 # Pokaz pomoc
 npx -y steganography-mcp --help
 
-# Wylistuj wszystkie 60 narzedzi z opisami
+# Wylistuj wszystkie 128 narzedzi z opisami
 npx -y steganography-mcp --list
 
 # Wykryj steganografie w obrazie
@@ -558,7 +568,7 @@ src/
   index.ts                    # Punkt wejscia CLI (--help, --list, --tool, serwer stdio)
   protocol/
     mcp-server.ts             # Konfiguracja serwera MCP (transport stdio)
-    tools.ts                  # Rejestr narzedzi — wszystkie 60 narzedzi zebranych tutaj
+    tools.ts                  # Rejestr narzedzi — wszystkie 128 narzedzi zebranych tutaj
   types/
     index.ts                  # Typy wspoldzielone (ToolDef, ToolContext, ToolResult)
   utils/
@@ -569,13 +579,28 @@ src/
     jpeg-parser.ts            # Czysty parser JPEG w TS (znaczniki, EXIF, kwantyzacja)
     wav-parser.ts             # Czysty parser WAV w TS (chunki RIFF, probki PCM)
     bmp-parser.ts             # Czysty parser BMP w TS (naglowek, dane pikseli)
+    avi-parser.ts             # Czysty parser AVI w TS (klatki, naglowki)
+    gif-parser.ts             # Czysty parser GIF w TS (paleta, bloki LZW)
+    pcap-parser.ts            # Czysty parser PCAP w TS (pakiety, naglowki)
+    mp3-parser.ts             # Czysty parser MP3 w TS (ramki, tagi ID3)
+    zip-parser.ts             # Czysty parser ZIP w TS (lokalne naglowki, central directory)
   image/                      # Narzedzia steganalizy obrazu (14)
   jpeg/                       # Narzedzia analizy JPEG (7)
+  jpegadv/                    # Zaawansowane narzedzia JPEG (7)
   audio/                      # Narzedzia steganalizy audio (7)
   text/                       # Narzedzia tekstu i Unicode (10)
   file/                       # Narzedzia forensyki plikow (10)
   document/                   # Narzedzia analizy dokumentow (5)
   crypto/                     # Narzedzia kodowania i krypto (7)
+  video/                      # Narzedzia steganografii wideo (8)
+  gif/                        # Narzedzia steganografii GIF (8)
+  network/                    # Narzedzia steganografii sieciowej (8)
+  mp3/                        # Narzedzia steganografii MP3 (7)
+  spread/                     # Narzedzia Spread Spectrum (5)
+  bpcs/                       # Narzedzia analizy BPCS (5)
+  archive/                    # Narzedzia steganografii archiwow (7)
+  create/                     # Narzedzia tworzenia i osadzania (7)
+  qrcode/                     # Narzedzia steganografii kodow QR (6)
   data/
     encoding-patterns.ts      # Wzorce regex kodowan + dekodery
     magic-bytes.ts            # Baza sygnatur plikow (100+ formatow)
@@ -589,7 +614,7 @@ src/
 - **100% offline** &mdash; Kazde narzedzie dziala calkowicie lokalnie. Zadnych zapytan HTTP. Zadnych wywolan API. Zadnej telemetrii. Zadnych zaleznosci chmurowych. Twoje pliki nigdy nie opuszczaja Twojej maszyny.
 - **Czysta analiza statystyczna w TypeScript** &mdash; Test chi-kwadrat, analiza RS (Fridrich-Goljan-Du), Sample Pair Analysis, entropia Shannona, Index of Coincidence i analiza czestotliwosci sa zaimplementowane w czystym TypeScript. Zadnych zewnetrznych bibliotek matematycznych.
 - **Niestandardowe parsery formatow** &mdash; Chunki PNG, znaczniki JPEG/EXIF/tabele kwantyzacji, chunki RIFF WAV i naglowki BMP sa parsowane bez zewnetrznych zaleznosci przez parsery `utils/`. Umozliwia to gleboka analize specyficzna dla formatu, ktorej biblioteki ogolnego przeznaczenia nie moga zapewnic.
-- **7 dostawcow, 1 serwer** &mdash; Kazda kategoria analizy jest niezaleznym modulem. Agent AI wybiera jakie narzedzia uzyc na podstawie kontekstu sledztwa.
+- **17 dostawcow, 1 serwer** &mdash; Kazda kategoria analizy jest niezaleznym modulem. Agent AI wybiera jakie narzedzia uzyc na podstawie kontekstu sledztwa.
 - **Czysty wzorzec ToolDef** &mdash; Kazde narzedzie stosuje ten sam wzorzec `{ name, description, schema, execute }`. Dodanie nowego narzedzia to jeden obiekt w odpowiednim module.
 - **Walidacja Zod na kazdym polu** &mdash; Kazde pole schematu ma `.describe()` dla kontekstu agenta AI. Nieprawidlowe wejscia sa wychwytywane przed wykonaniem z jasnymi komunikatami bledow.
 
@@ -606,7 +631,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT i rekonesans | 37 narzedzi |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | Dark web i analiza zagrozen | 66 narzedzi |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | Bezpieczenstwo DNS | 103 narzedzi |
-| **steganography-mcp** | **Analiza steganografii** | **60 narzedzi** |
+| **steganography-mcp** | **Analiza steganografii** | **128 narzedzi** |
 
 ---
 

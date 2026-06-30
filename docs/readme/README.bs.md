@@ -36,8 +36,8 @@
 <h3 align="center">Najsveobuhvatniji alat za steganografsku analizu namijenjen AI agentima.</h3>
 
 <p align="center">
-  LSB detekcija, hi-kvadrat steganaliza, RS analiza, DCT forenzika, audio steganografija, kodiranje nultom sirinom teksta, forenzika datoteka, detekcija poliglota, identifikacija kodiranja &mdash; objedinjeno u jednom MCP serveru.<br>
-  <b>60 alata. 7 kategorija. 4 zavisnosti. 100% offline.</b> Nula API kljuceva. Svaki alat radi lokalno.
+  LSB detekcija, hi-kvadrat steganaliza, RS analiza, DCT forenzika, audio steganografija, kodiranje nultom sirinom teksta, forenzika datoteka, detekcija poliglota, identifikacija kodiranja, napredna JPEG analiza, video i GIF steganaliza, mrezna steganografija, MP3 analiza, spektar rasirenog spektra, BPCS analiza, steganografija arhiva, kreiranje i ugradnja, QR kod steganaliza &mdash; objedinjeno u jednom MCP serveru.<br>
+  <b>128 alata. 17 kategorija. 4 zavisnosti. 100% offline.</b> Nula API kljuceva. Svaki alat radi lokalno.
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#po-cemu-se-razlikuje">Po cemu se razlikuje</a> &bull;
   <a href="#brzi-pocetak">Brzi pocetak</a> &bull;
   <a href="#sta-ai-moze-uraditi">Sta AI moze uraditi</a> &bull;
-  <a href="#referenca-alata-60-alata">Alati (60)</a> &bull;
+  <a href="#referenca-alata-128-alata">Alati (128)</a> &bull;
   <a href="#koristenje-iz-komandne-linije">Komandna linija</a> &bull;
   <a href="#arhitektura">Arhitektura</a> &bull;
   <a href="../../CONTRIBUTING.md">Doprinos</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="Licenca MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP kompatibilan">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 alata">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 alata">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Nula API kljuceva">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub zvjezdice"></a>
@@ -87,7 +87,7 @@ Tradicionalni tok rada steganografske analize:
   Ukupno: 10+ alata, 5+ jezika, sati rucne korelacije
 ```
 
-**steganography-mcp** daje vasem AI agentu 60 alata u 7 kategorija putem [Model Context Protocola](https://modelcontextprotocol.io). Agent izvodi steganalizu slika, JPEG forenziku, audio analizu, detekciju tekstualne steganografije, forenziku datoteka, analizu dokumenata i identifikaciju kodiranja &mdash; sve u jednom razgovoru, sve radi 100% lokalno bez ikakve zavisnosti od vanjskih servisa.
+**steganography-mcp** daje vasem AI agentu 128 alata u 17 kategorija putem [Model Context Protocola](https://modelcontextprotocol.io). Agent izvodi steganalizu slika, JPEG forenziku, audio analizu, detekciju tekstualne steganografije, forenziku datoteka, analizu dokumenata, identifikaciju kodiranja, naprednu JPEG analizu, video i GIF steganalizu, mreznu steganografiju, MP3 analizu, analizu rasirenog spektra, BPCS analizu, steganografiju arhiva, kreiranje i ugradnju podataka i QR kod steganalizu &mdash; sve u jednom razgovoru, sve radi 100% lokalno bez ikakve zavisnosti od vanjskih servisa.
 
 ```
 Sa steganography-mcp:
@@ -131,7 +131,7 @@ Vecina steganografskih alata su jednonamjenski. steganography-mcp daje vasem AI 
 <tr>
 <td><b>Pokrivenost</b></td>
 <td>Jedna tehnika u isto vrijeme</td>
-<td>7 kategorija, 60 alata paralelno</td>
+<td>17 kategorija, 128 alata paralelno</td>
 </tr>
 <tr>
 <td><b>Analiza slika</b></td>
@@ -181,7 +181,7 @@ Vecina steganografskih alata su jednonamjenski. steganography-mcp daje vasem AI 
 npx -y steganography-mcp
 ```
 
-Svih 60 alata radi odmah. Bez API kljuceva. Bez konfiguracije. 100% offline.
+Svih 128 alata radi odmah. Bez API kljuceva. Bez konfiguracije. 100% offline.
 
 ### Opcija 2: bunx (brze)
 
@@ -337,7 +337,7 @@ Agent: -> jpeg_structure: 14 markera parsirano, normalna JFIF struktura
 
 ---
 
-## Referenca alata (60 alata)
+## Referenca alata (128 alata)
 
 ### Pregled kategorija
 
@@ -350,6 +350,16 @@ Agent: -> jpeg_structure: 14 markera parsirano, normalna JFIF struktura
 | [Forenzika datoteka](#-forenzika-datoteka-10) | 10 | Magic bajtovi, detekcija poliglota, ugradjene datoteke, dodati podaci, entropija, hex dump, stringovi, zaglavlja |
 | [Analiza dokumenata](#-analiza-dokumenata-5) | 5 | Skriveni PDF sadrzaj, PDF metapodaci, PDF streamovi, skriveni HTML sadrzaj, XML metapodaci |
 | [Kodiranje i kripto](#-kodiranje--kripto-7) | 7 | Detekcija kodiranja, multi-format dekoder, frekvencijska analiza, entropija, XOR brute-force, identifikacija hasha, obrasci sifri |
+| [Napredna JPEG analiza](#-napredna-jpeg-analiza-7) | 7 | F5, JSteg, OutGuess, PVD detekcija, klizni prozor hi-kvadrat, crop-rekalibracija steganaliza, kompatibilnost alata |
+| [Video steganografija](#-video-steganografija-8) | 8 | AVI frame LSB, inter-frame analiza, poredjenje okvira, metapodaci, struktura, EOF podaci |
+| [GIF steganografija](#-gif-steganografija-8) | 8 | Paleta LSB, LZW sub-blok entropija, komentarsko prosirenje, aplikacijsko prosirenje, analiza okvira |
+| [Mrezna steganografija](#-mrezna-steganografija-8) | 8 | PCAP skriveni kanali, IP/TCP analiza zaglavlja, ICMP payloadi, DNS tuneliranje, HTTP zaglavlja, tajming |
+| [MP3 steganografija](#-mp3-steganografija-7) | 7 | ID3 skriveni podaci, analiza okvira, manipulacija paddinga, analiza uzoraka, metapodaci, struktura |
+| [Rasireni spektar](#-rasireni-spektar-5) | 5 | DFT spektar magnitude, autokorelacija, detekcija vodenog ziga, analiza razine suma, patchwork detekcija |
+| [BPCS analiza](#-bpcs-analiza-5) | 5 | Segmentacija kompleksnosti bit-ravni, mapiranje kompleksnosti, analiza praga, ekstrakcija podataka, procjena kapaciteta |
+| [Steganografija arhiva](#-steganografija-arhiva-7) | 7 | ZIP prazan prostor, dodatna polja, komentari, detekcija poliglota, analiza strukture, metapodaci |
+| [Kreiranje i ugradnja](#-kreiranje-i-ugradnja-7) | 7 | EOF injekcija, injekcija metapodataka, kodiranje razmacima, nulta sifra, kreiranje poliglota, injekcija komentara, ugradnja u paletu |
+| [QR kod steganografija](#-qr-kod-steganografija-6) | 6 | QR stego detekcija, analiza strukture, ECC kapacitet, analiza modula, ekstrakcija podataka, poredjenje |
 
 ---
 
@@ -477,7 +487,7 @@ Agent: -> jpeg_structure: 14 markera parsirano, normalna JFIF struktura
 # Prikaz pomoci
 npx -y steganography-mcp --help
 
-# Lista svih 60 alata sa opisima
+# Lista svih 128 alata sa opisima
 npx -y steganography-mcp --list
 
 # Detekcija steganografije u slici
@@ -557,7 +567,7 @@ src/
   index.ts                    # CLI ulazna tacka (--help, --list, --tool, stdio server)
   protocol/
     mcp-server.ts             # Postavka MCP servera (stdio transport)
-    tools.ts                  # Registar alata — svih 60 alata okupljeno ovdje
+    tools.ts                  # Registar alata — svih 128 alata okupljeno ovdje
   types/
     index.ts                  # Dijeljeni tipovi (ToolDef, ToolContext, ToolResult)
   utils/
@@ -568,6 +578,11 @@ src/
     jpeg-parser.ts            # Cisti TS JPEG parser (markeri, EXIF, kvantizacija)
     wav-parser.ts             # Cisti TS WAV parser (RIFF chunkovi, PCM uzorci)
     bmp-parser.ts             # Cisti TS BMP parser (zaglavlje, podaci piksela)
+    avi-parser.ts             # Cisti TS AVI parser (okviri, zaglavlja)
+    gif-parser.ts             # Cisti TS GIF parser (paleta, okviri, prosirenja)
+    pcap-parser.ts            # Cisti TS PCAP parser (paketi, zaglavlja)
+    mp3-parser.ts             # Cisti TS MP3 parser (okviri, ID3 tagovi)
+    zip-parser.ts             # Cisti TS ZIP parser (zaglavlja, unosi)
   image/                      # Alati za steganalizu slika (14)
   jpeg/                       # Alati za JPEG analizu (7)
   audio/                      # Alati za audio steganalizu (7)
@@ -575,6 +590,16 @@ src/
   file/                       # Alati za forenziku datoteka (10)
   document/                   # Alati za analizu dokumenata (5)
   crypto/                     # Alati za kodiranje i kripto (7)
+  jpegadv/                    # Alati za naprednu JPEG analizu (7)
+  video/                      # Alati za video steganografiju (8)
+  gif/                        # Alati za GIF steganografiju (8)
+  network/                    # Alati za mreznu steganografiju (8)
+  mp3/                        # Alati za MP3 steganografiju (7)
+  spread/                     # Alati za rasireni spektar (5)
+  bpcs/                       # Alati za BPCS analizu (5)
+  archive/                    # Alati za steganografiju arhiva (7)
+  create/                     # Alati za kreiranje i ugradnju (7)
+  qrcode/                     # Alati za QR kod steganografiju (6)
   data/
     encoding-patterns.ts      # Obrasci kodiranja regex + dekoderi
     magic-bytes.ts            # Baza potpisa datoteka (100+ formata)
@@ -588,7 +613,7 @@ src/
 - **100% offline** &mdash; Svaki alat radi potpuno lokalno. Bez HTTP zahtjeva. Bez API poziva. Bez telemetrije. Bez cloud zavisnosti. Vasi fajlovi nikada ne napustaju vasu masinu.
 - **Cista TypeScript statisticka analiza** &mdash; Hi-kvadrat test, RS analiza (Fridrich-Goljan-Du), Analiza parova uzoraka, Shannon entropija, Indeks podudarnosti i frekvencijska analiza su sve implementirani u cistom TypeScriptu. Bez vanjskih matematickih biblioteka.
 - **Prilagodjeni parseri formata** &mdash; PNG chunkovi, JPEG markeri/EXIF/tablice kvantizacije, WAV RIFF chunkovi i BMP zaglavlja se parsiraju sa nula vanjskih zavisnosti koristeci `utils/` parsere. Ovo omogucava duboku analizu specificnu za format koju biblioteke opste namjene ne mogu pruziti.
-- **7 provajdera, 1 server** &mdash; Svaka kategorija analize je nezavisan modul. AI agent bira koje alate koristi na osnovu konteksta istrage.
+- **17 provajdera, 1 server** &mdash; Svaka kategorija analize je nezavisan modul. AI agent bira koje alate koristi na osnovu konteksta istrage.
 - **Cist ToolDef obrazac** &mdash; Svaki alat prati isti `{ name, description, schema, execute }` obrazac. Dodavanje novog alata je jedan objekat u odgovarajucem modulu.
 - **Zod validacija na svakom polju** &mdash; Svako polje seme ima `.describe()` za kontekst AI agenta. Nevazeci unosi se hvataju prije izvrsavanja sa jasnim porukama o greskama.
 
@@ -605,7 +630,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT i izvidjanje | 37 alata |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | Tamni web i obavjestajne informacije o prijetnjama | 66 alata |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | DNS sigurnosna inteligencija | 103 alata |
-| **steganography-mcp** | **Steganografska analiza** | **60 alata** |
+| **steganography-mcp** | **Steganografska analiza** | **128 alata** |
 
 ---
 

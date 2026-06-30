@@ -36,8 +36,8 @@
 <h3 align="center">Bộ công cụ phân tích giấu tin toàn diện nhất dành cho AI agent.</h3>
 
 <p align="center">
-  Phát hiện LSB, phân tích thống kê chi-square, phân tích RS, pháp y DCT, giấu tin trong âm thanh, mã hóa văn bản ký tự không rộng, pháp y tệp, phát hiện tệp đa định dạng, nhận dạng mã hóa &mdash; tất cả hợp nhất trong một MCP server duy nhất.<br>
-  <b>60 công cụ. 7 danh mục. 4 phụ thuộc. 100% ngoại tuyến.</b> Không cần API key. Mọi công cụ chạy trên máy cục bộ.
+  Phát hiện LSB, phân tích thống kê chi-square, phân tích RS, pháp y DCT, giấu tin trong âm thanh, mã hóa văn bản ký tự không rộng, pháp y tệp, phát hiện tệp đa định dạng, nhận dạng mã hóa, giấu tin video/GIF/MP3, kênh ẩn mạng, phân tích spread spectrum &amp; BPCS, pháp y tệp ZIP, tạo &amp; nhúng, phân tích mã QR &mdash; tất cả hợp nhất trong một MCP server duy nhất.<br>
+  <b>128 công cụ. 17 danh mục. 4 phụ thuộc. 100% ngoại tuyến.</b> Không cần API key. Mọi công cụ chạy trên máy cục bộ.
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#điểm-khác-biệt">Điểm Khác Biệt</a> &bull;
   <a href="#bắt-đầu-nhanh">Bắt Đầu Nhanh</a> &bull;
   <a href="#ai-có-thể-làm-gì">AI Có Thể Làm Gì</a> &bull;
-  <a href="#tham-chiếu-công-cụ-60-công-cụ">Công Cụ (60)</a> &bull;
+  <a href="#tham-chiếu-công-cụ-128-công-cụ">Công Cụ (128)</a> &bull;
   <a href="#sử-dụng-cli">Sử Dụng CLI</a> &bull;
   <a href="#kiến-trúc">Kiến Trúc</a> &bull;
   <a href="../../CONTRIBUTING.md">Đóng Góp</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP Compatible">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Tools">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Tools">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Zero API Keys">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub stars"></a>
@@ -87,7 +87,7 @@ Quy trình phân tích giấu tin truyền thống:
   Tổng: 10+ công cụ, 5+ ngôn ngữ, hàng giờ tương quan thủ công
 ```
 
-**steganography-mcp** cung cấp cho AI agent của bạn 60 công cụ thuộc 7 danh mục thông qua [Model Context Protocol](https://modelcontextprotocol.io). Agent thực hiện phân tích giấu tin hình ảnh, pháp y JPEG, phân tích âm thanh, phát hiện giấu tin văn bản, pháp y tệp, phân tích tài liệu và nhận dạng mã hóa &mdash; tất cả trong một cuộc hội thoại duy nhất, chạy 100% cục bộ mà không phụ thuộc vào bất kỳ dịch vụ bên ngoài nào.
+**steganography-mcp** cung cấp cho AI agent của bạn 128 công cụ thuộc 17 danh mục thông qua [Model Context Protocol](https://modelcontextprotocol.io). Agent thực hiện phân tích giấu tin hình ảnh, pháp y JPEG, phân tích JPEG nâng cao, phân tích âm thanh, phát hiện giấu tin văn bản, pháp y tệp, phân tích tài liệu, nhận dạng mã hóa, giấu tin video/GIF/MP3, phân tích kênh ẩn mạng, phát hiện spread spectrum &amp; BPCS, pháp y tệp ZIP, tạo &amp; nhúng và phân tích mã QR &mdash; tất cả trong một cuộc hội thoại duy nhất, chạy 100% cục bộ mà không phụ thuộc vào bất kỳ dịch vụ bên ngoài nào.
 
 ```
 Với steganography-mcp:
@@ -131,7 +131,7 @@ Hầu hết các công cụ giấu tin là tiện ích đơn lẻ. steganography
 <tr>
 <td><b>Phạm vi</b></td>
 <td>Một kỹ thuật mỗi lần</td>
-<td>7 danh mục, 60 công cụ song song</td>
+<td>17 danh mục, 128 công cụ song song</td>
 </tr>
 <tr>
 <td><b>Phân tích hình ảnh</b></td>
@@ -181,7 +181,7 @@ Hầu hết các công cụ giấu tin là tiện ích đơn lẻ. steganography
 npx -y steganography-mcp
 ```
 
-Tất cả 60 công cụ hoạt động ngay lập tức. Không cần API key. Không cần cấu hình. 100% ngoại tuyến.
+Tất cả 128 công cụ hoạt động ngay lập tức. Không cần API key. Không cần cấu hình. 100% ngoại tuyến.
 
 ### Tùy chọn 2: bunx (nhanh hơn)
 
@@ -337,7 +337,7 @@ Agent: -> jpeg_structure: Phân tích 14 điểm đánh dấu, cấu trúc JFIF 
 
 ---
 
-## Tham Chiếu Công Cụ (60 công cụ)
+## Tham Chiếu Công Cụ (128 công cụ)
 
 ### Tổng Quan Danh Mục
 
@@ -350,6 +350,16 @@ Agent: -> jpeg_structure: Phân tích 14 điểm đánh dấu, cấu trúc JFIF 
 | [Pháp y tệp](#-pháp-y-tệp-10) | 10 | Magic bytes, phát hiện đa định dạng, tệp nhúng, dữ liệu đính kèm, entropy, hex dump, strings, headers |
 | [Phân tích tài liệu](#-phân-tích-tài-liệu-5) | 5 | Nội dung ẩn PDF, siêu dữ liệu PDF, luồng PDF, nội dung ẩn HTML, siêu dữ liệu XML |
 | [Mã hóa & Mật mã](#-mã-hóa--mật-mã-7) | 7 | Phát hiện mã hóa, giải mã đa định dạng, phân tích tần suất, entropy, XOR brute-force, nhận dạng hash, mẫu mật mã |
+| [JPEG Nâng Cao](#-jpeg-nâng-cao-7) | 7 | Phát hiện F5, JSteg, OutGuess, PVD, phân tích chi-square cửa sổ trượt, phân tích crop-recalibrate, tương thích công cụ |
+| [Giấu Tin Video](#-giấu-tin-video-8) | 8 | AVI frame LSB, phân tích liên khung, so sánh khung, siêu dữ liệu, cấu trúc, dữ liệu EOF |
+| [Giấu Tin GIF](#-giấu-tin-gif-8) | 8 | Bảng màu LSB, entropy khối con LZW, phần mở rộng bình luận, phần mở rộng ứng dụng, phân tích khung |
+| [Giấu Tin Mạng](#-giấu-tin-mạng-8) | 8 | Kênh ẩn PCAP, phân tích header IP/TCP, payload ICMP, tunneling DNS, header HTTP, thời gian |
+| [Giấu Tin MP3](#-giấu-tin-mp3-7) | 7 | Dữ liệu ẩn ID3, phân tích khung, thao tác padding, phân tích mẫu, siêu dữ liệu, cấu trúc |
+| [Spread Spectrum](#-spread-spectrum-5) | 5 | Phổ biên độ DFT, tự tương quan, phát hiện watermark, phân tích sàn nhiễu, phát hiện patchwork |
+| [Phân Tích BPCS](#-phân-tích-bpcs-5) | 5 | Phân đoạn phức tạp bit-plane, bản đồ phức tạp, phân tích ngưỡng, trích xuất dữ liệu, ước tính dung lượng |
+| [Giấu Tin Tệp Nén](#-giấu-tin-tệp-nén-7) | 7 | Vùng trống ZIP, trường bổ sung, bình luận, phát hiện đa định dạng, phân tích cấu trúc, siêu dữ liệu |
+| [Tạo & Nhúng](#-tạo--nhúng-7) | 7 | Chèn EOF, chèn siêu dữ liệu, mã hóa khoảng trắng, null cipher, tạo đa định dạng, chèn bình luận, nhúng bảng màu |
+| [Giấu Tin Mã QR](#-giấu-tin-mã-qr-6) | 6 | Phát hiện giấu tin QR, phân tích cấu trúc, dung lượng ECC, phân tích module, trích xuất dữ liệu, so sánh |
 
 ---
 
@@ -477,7 +487,7 @@ Agent: -> jpeg_structure: Phân tích 14 điểm đánh dấu, cấu trúc JFIF 
 # Hiển thị trợ giúp
 npx -y steganography-mcp --help
 
-# Liệt kê tất cả 60 công cụ với mô tả
+# Liệt kê tất cả 128 công cụ với mô tả
 npx -y steganography-mcp --list
 
 # Phát hiện giấu tin trong hình ảnh
@@ -557,7 +567,7 @@ src/
   index.ts                    # Điểm vào CLI (--help, --list, --tool, stdio server)
   protocol/
     mcp-server.ts             # Thiết lập MCP server (truyền tải stdio)
-    tools.ts                  # Sổ đăng ký công cụ — tất cả 60 công cụ được tập hợp tại đây
+    tools.ts                  # Sổ đăng ký công cụ — tất cả 128 công cụ được tập hợp tại đây
   types/
     index.ts                  # Kiểu dùng chung (ToolDef, ToolContext, ToolResult)
   utils/
@@ -568,6 +578,11 @@ src/
     jpeg-parser.ts            # Trình phân tích JPEG thuần TS (markers, EXIF, lượng tử hóa)
     wav-parser.ts             # Trình phân tích WAV thuần TS (chunks RIFF, mẫu PCM)
     bmp-parser.ts             # Trình phân tích BMP thuần TS (header, dữ liệu pixel)
+    avi-parser.ts             # Trình phân tích AVI thuần TS (khung, cấu trúc RIFF)
+    gif-parser.ts             # Trình phân tích GIF thuần TS (bảng màu, khối LZW, phần mở rộng)
+    pcap-parser.ts            # Trình phân tích PCAP thuần TS (gói tin, header giao thức)
+    mp3-parser.ts             # Trình phân tích MP3 thuần TS (khung, thẻ ID3, mẫu)
+    zip-parser.ts             # Trình phân tích ZIP thuần TS (mục nhập, vùng trống, siêu dữ liệu)
   image/                      # Công cụ Phân tích giấu tin hình ảnh (14)
   jpeg/                       # Công cụ Phân tích JPEG (7)
   audio/                      # Công cụ Phân tích giấu tin âm thanh (7)
@@ -575,6 +590,16 @@ src/
   file/                       # Công cụ Pháp y tệp (10)
   document/                   # Công cụ Phân tích tài liệu (5)
   crypto/                     # Công cụ Mã hóa & Mật mã (7)
+  jpegadv/                    # Công cụ JPEG Nâng Cao (7)
+  video/                      # Công cụ Giấu Tin Video (8)
+  gif/                        # Công cụ Giấu Tin GIF (8)
+  network/                    # Công cụ Giấu Tin Mạng (8)
+  mp3/                        # Công cụ Giấu Tin MP3 (7)
+  spread/                     # Công cụ Spread Spectrum (5)
+  bpcs/                       # Công cụ Phân Tích BPCS (5)
+  archive/                    # Công cụ Giấu Tin Tệp Nén (7)
+  create/                     # Công cụ Tạo & Nhúng (7)
+  qrcode/                     # Công cụ Giấu Tin Mã QR (6)
   data/
     encoding-patterns.ts      # Mẫu regex mã hóa + bộ giải mã
     magic-bytes.ts            # Cơ sở dữ liệu chữ ký tệp (100+ định dạng)
@@ -588,7 +613,7 @@ src/
 - **100% ngoại tuyến** &mdash; Mọi công cụ chạy hoàn toàn cục bộ. Không có HTTP requests. Không có API calls. Không có telemetry. Không phụ thuộc cloud. Tệp của bạn không bao giờ rời khỏi máy.
 - **Phân tích thống kê TypeScript thuần** &mdash; Kiểm tra chi-square, phân tích RS (Fridrich-Goljan-Du), Phân tích Cặp Mẫu, entropy Shannon, Chỉ số Trùng khớp và phân tích tần suất đều được triển khai bằng TypeScript thuần. Không có thư viện toán học bên ngoài.
 - **Trình phân tích định dạng tùy chỉnh** &mdash; PNG chunks, JPEG markers/EXIF/bảng lượng tử hóa, WAV RIFF chunks và BMP headers được phân tích không phụ thuộc bên ngoài bằng các trình phân tích `utils/`. Điều này cho phép phân tích chuyên sâu theo định dạng mà các thư viện đa năng không thể cung cấp.
-- **7 nhà cung cấp, 1 server** &mdash; Mỗi danh mục phân tích là một module độc lập. AI agent chọn công cụ nào sử dụng dựa trên ngữ cảnh điều tra.
+- **17 nhà cung cấp, 1 server** &mdash; Mỗi danh mục phân tích là một module độc lập. AI agent chọn công cụ nào sử dụng dựa trên ngữ cảnh điều tra.
 - **Mẫu ToolDef sạch** &mdash; Mỗi công cụ tuân theo cùng mẫu `{ name, description, schema, execute }`. Thêm công cụ mới chỉ là một object trong module tương ứng.
 - **Xác thực Zod trên mọi trường** &mdash; Mỗi trường schema có `.describe()` cho ngữ cảnh AI agent. Đầu vào không hợp lệ được phát hiện trước khi thực thi với thông báo lỗi rõ ràng.
 
@@ -605,7 +630,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT & trinh sát | 37 công cụ |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | Dark web & thông tin mối đe dọa | 66 công cụ |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | Bảo mật DNS | 103 công cụ |
-| **steganography-mcp** | **Phân tích giấu tin** | **60 công cụ** |
+| **steganography-mcp** | **Phân tích giấu tin** | **128 công cụ** |
 
 ---
 

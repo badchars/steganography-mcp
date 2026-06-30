@@ -36,8 +36,8 @@
 <h3 align="center">O kit de ferramentas de analise esteganografica mais completo para agentes de IA.</h3>
 
 <p align="center">
-  Deteccao LSB, estegananalise qui-quadrado, analise RS, forense DCT, esteganografia de audio, codificacao de largura zero em texto, forense de arquivos, deteccao de poliglotas, identificacao de codificacao &mdash; unificados em um unico servidor MCP.<br>
-  <b>60 ferramentas. 7 categorias. 4 dependencias. 100% offline.</b> Zero chaves de API. Toda ferramenta roda localmente.
+  Deteccao LSB, estegananalise qui-quadrado, analise RS, forense DCT, esteganografia de audio, codificacao de largura zero em texto, forense de arquivos, deteccao de poliglotas, identificacao de codificacao, analise JPEG avancada, esteganografia de video e GIF, esteganografia de rede, analise MP3, espectro espalhado, analise BPCS, esteganografia de arquivos compactados, criacao e incorporacao, esteganografia de QR code &mdash; unificados em um unico servidor MCP.<br>
+  <b>128 ferramentas. 17 categorias. 4 dependencias. 100% offline.</b> Zero chaves de API. Toda ferramenta roda localmente.
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#como-e-diferente">Como e Diferente</a> &bull;
   <a href="#inicio-rapido">Inicio Rapido</a> &bull;
   <a href="#o-que-a-ia-pode-fazer">O Que a IA Pode Fazer</a> &bull;
-  <a href="#referencia-de-ferramentas-60-ferramentas">Ferramentas (60)</a> &bull;
+  <a href="#referencia-de-ferramentas-128-ferramentas">Ferramentas (128)</a> &bull;
   <a href="#uso-via-cli">CLI</a> &bull;
   <a href="#arquitetura">Arquitetura</a> &bull;
   <a href="../../CONTRIBUTING.md">Contribuicao</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="Licenca MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="Compativel com MCP">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Ferramentas">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Ferramentas">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Zero Chaves de API">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="Estrelas GitHub"></a>
@@ -87,7 +87,7 @@ Fluxo de trabalho tradicional de analise esteganografica:
   Total: 10+ ferramentas, 5+ linguagens, horas de correlacao manual
 ```
 
-**steganography-mcp** fornece ao seu agente de IA 60 ferramentas em 7 categorias atraves do [Model Context Protocol](https://modelcontextprotocol.io). O agente realiza estegananalise de imagens, forense JPEG, analise de audio, deteccao de esteganografia textual, forense de arquivos, analise de documentos e identificacao de codificacao &mdash; tudo em uma unica conversa, tudo rodando 100% localmente sem dependencia de servicos externos.
+**steganography-mcp** fornece ao seu agente de IA 128 ferramentas em 17 categorias atraves do [Model Context Protocol](https://modelcontextprotocol.io). O agente realiza estegananalise de imagens, forense JPEG, analise de audio, deteccao de esteganografia textual, forense de arquivos, analise de documentos, identificacao de codificacao, analise JPEG avancada, esteganografia de video e GIF, esteganografia de rede, analise MP3, analise de espectro espalhado, analise BPCS, esteganografia de arquivos compactados, criacao e incorporacao de dados e esteganografia de QR code &mdash; tudo em uma unica conversa, tudo rodando 100% localmente sem dependencia de servicos externos.
 
 ```
 Com steganography-mcp:
@@ -131,7 +131,7 @@ A maioria das ferramentas de esteganografia sao utilitarios de proposito unico. 
 <tr>
 <td><b>Cobertura</b></td>
 <td>Uma tecnica por vez</td>
-<td>7 categorias, 60 ferramentas em paralelo</td>
+<td>17 categorias, 128 ferramentas em paralelo</td>
 </tr>
 <tr>
 <td><b>Analise de imagens</b></td>
@@ -181,7 +181,7 @@ A maioria das ferramentas de esteganografia sao utilitarios de proposito unico. 
 npx -y steganography-mcp
 ```
 
-Todas as 60 ferramentas funcionam imediatamente. Sem chaves de API. Sem configuracao. 100% offline.
+Todas as 128 ferramentas funcionam imediatamente. Sem chaves de API. Sem configuracao. 100% offline.
 
 ### Opcao 2: bunx (mais rapido)
 
@@ -338,7 +338,7 @@ Agente: -> jpeg_structure: 14 marcadores analisados, estrutura JFIF normal
 
 ---
 
-## Referencia de Ferramentas (60 ferramentas)
+## Referencia de Ferramentas (128 ferramentas)
 
 ### Visao Geral das Categorias
 
@@ -351,6 +351,16 @@ Agente: -> jpeg_structure: 14 marcadores analisados, estrutura JFIF normal
 | [Forense de Arquivos](#-forense-de-arquivos-10) | 10 | Magic bytes, deteccao de poliglotas, arquivos incorporados, dados anexados, entropia, hex dump, strings, cabecalhos |
 | [Analise de Documentos](#-analise-de-documentos-5) | 5 | Conteudo PDF oculto, metadados PDF, streams PDF, conteudo HTML oculto, metadados XML |
 | [Codificacao & Cripto](#-codificacao--cripto-7) | 7 | Deteccao de codificacao, decodificador multi-formato, analise de frequencia, entropia, XOR brute-force, identificacao de hash, padroes de cifra |
+| [Analise JPEG Avancada](#-analise-jpeg-avancada-7) | 7 | F5, JSteg, OutGuess, deteccao PVD, janela deslizante qui-quadrado, estegananalise crop-recalibracao, compatibilidade de ferramentas |
+| [Esteganografia de Video](#-esteganografia-de-video-8) | 8 | LSB de frame AVI, analise inter-frame, comparacao de frames, metadados, estrutura, dados EOF |
+| [Esteganografia de GIF](#-esteganografia-de-gif-8) | 8 | Paleta LSB, entropia de sub-bloco LZW, extensoes de comentario, extensoes de aplicacao, analise de frames |
+| [Esteganografia de Rede](#-esteganografia-de-rede-8) | 8 | Canais ocultos PCAP, analise de cabecalhos IP/TCP, payloads ICMP, tunelamento DNS, cabecalhos HTTP, timing |
+| [Esteganografia MP3](#-esteganografia-mp3-7) | 7 | Dados ocultos ID3, analise de frames, manipulacao de padding, analise de amostras, metadados, estrutura |
+| [Espectro Espalhado](#-espectro-espalhado-5) | 5 | Espectro de magnitude DFT, autocorrelacao, deteccao de marca d'agua, analise de piso de ruido, deteccao patchwork |
+| [Analise BPCS](#-analise-bpcs-5) | 5 | Segmentacao de complexidade de plano de bits, mapeamento de complexidade, analise de limiar, extracao de dados, estimativa de capacidade |
+| [Esteganografia de Arquivos Compactados](#-esteganografia-de-arquivos-compactados-7) | 7 | Espacos vazios ZIP, campos extras, comentarios, deteccao de poliglotas, analise de estrutura, metadados |
+| [Criacao & Incorporacao](#-criacao--incorporacao-7) | 7 | Injecao EOF, injecao de metadados, codificacao por espacos, cifra nula, criacao de poliglotas, injecao de comentarios, incorporacao em paleta |
+| [Esteganografia de QR Code](#-esteganografia-de-qr-code-6) | 6 | Deteccao de estego QR, analise de estrutura, capacidade ECC, analise de modulos, extracao de dados, comparacao |
 
 ---
 
@@ -478,7 +488,7 @@ Agente: -> jpeg_structure: 14 marcadores analisados, estrutura JFIF normal
 # Mostrar ajuda
 npx -y steganography-mcp --help
 
-# Listar todas as 60 ferramentas com descricoes
+# Listar todas as 128 ferramentas com descricoes
 npx -y steganography-mcp --list
 
 # Detectar esteganografia em uma imagem
@@ -558,7 +568,7 @@ src/
   index.ts                    # Ponto de entrada CLI (--help, --list, --tool, servidor stdio)
   protocol/
     mcp-server.ts             # Configuracao do servidor MCP (transporte stdio)
-    tools.ts                  # Registro de ferramentas — todas as 60 ferramentas montadas aqui
+    tools.ts                  # Registro de ferramentas — todas as 128 ferramentas montadas aqui
   types/
     index.ts                  # Tipos compartilhados (ToolDef, ToolContext, ToolResult)
   utils/
@@ -569,6 +579,11 @@ src/
     jpeg-parser.ts            # Parser JPEG em TS puro (marcadores, EXIF, quantizacao)
     wav-parser.ts             # Parser WAV em TS puro (chunks RIFF, amostras PCM)
     bmp-parser.ts             # Parser BMP em TS puro (cabecalho, dados de pixels)
+    avi-parser.ts             # Parser AVI em TS puro (frames, cabecalhos)
+    gif-parser.ts             # Parser GIF em TS puro (paleta, frames, extensoes)
+    pcap-parser.ts            # Parser PCAP em TS puro (pacotes, cabecalhos)
+    mp3-parser.ts             # Parser MP3 em TS puro (frames, tags ID3)
+    zip-parser.ts             # Parser ZIP em TS puro (cabecalhos, entradas)
   image/                      # Ferramentas de estegananalise de imagens (14)
   jpeg/                       # Ferramentas de analise JPEG (7)
   audio/                      # Ferramentas de estegananalise de audio (7)
@@ -576,6 +591,16 @@ src/
   file/                       # Ferramentas de forense de arquivos (10)
   document/                   # Ferramentas de analise de documentos (5)
   crypto/                     # Ferramentas de codificacao & cripto (7)
+  jpegadv/                    # Ferramentas de analise JPEG avancada (7)
+  video/                      # Ferramentas de esteganografia de video (8)
+  gif/                        # Ferramentas de esteganografia de GIF (8)
+  network/                    # Ferramentas de esteganografia de rede (8)
+  mp3/                        # Ferramentas de esteganografia MP3 (7)
+  spread/                     # Ferramentas de espectro espalhado (5)
+  bpcs/                       # Ferramentas de analise BPCS (5)
+  archive/                    # Ferramentas de esteganografia de arquivos compactados (7)
+  create/                     # Ferramentas de criacao & incorporacao (7)
+  qrcode/                     # Ferramentas de esteganografia de QR code (6)
   data/
     encoding-patterns.ts      # Padroes regex de codificacao + decodificadores
     magic-bytes.ts            # Banco de dados de assinaturas de arquivo (100+ formatos)
@@ -589,7 +614,7 @@ src/
 - **100% offline** &mdash; Toda ferramenta roda inteiramente localmente. Sem requisicoes HTTP. Sem chamadas de API. Sem telemetria. Sem dependencias de nuvem. Seus arquivos nunca saem da sua maquina.
 - **Analise estatistica em TypeScript puro** &mdash; Teste qui-quadrado, analise RS (Fridrich-Goljan-Du), Analise de Pares de Amostras, entropia de Shannon, Indice de Coincidencia e analise de frequencia sao todos implementados em TypeScript puro. Sem bibliotecas matematicas externas.
 - **Parsers de formato customizados** &mdash; Chunks PNG, marcadores/EXIF/tabelas de quantizacao JPEG, chunks RIFF WAV e cabecalhos BMP sao analisados com zero dependencias externas usando os parsers `utils/`. Isso permite analise profunda especifica de formato que bibliotecas de proposito geral nao conseguem fornecer.
-- **7 provedores, 1 servidor** &mdash; Cada categoria de analise e um modulo independente. O agente de IA escolhe quais ferramentas usar com base no contexto da investigacao.
+- **17 provedores, 1 servidor** &mdash; Cada categoria de analise e um modulo independente. O agente de IA escolhe quais ferramentas usar com base no contexto da investigacao.
 - **Padrao ToolDef limpo** &mdash; Toda ferramenta segue o mesmo padrao `{ name, description, schema, execute }`. Adicionar uma nova ferramenta e um unico objeto no modulo apropriado.
 - **Validacao Zod em cada campo** &mdash; Todo campo de schema tem `.describe()` para contexto do agente de IA. Entradas invalidas sao capturadas antes da execucao com mensagens de erro claras.
 
@@ -606,7 +631,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT & reconhecimento | 37 ferramentas |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | Dark web & inteligencia de ameacas | 66 ferramentas |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | Inteligencia de seguranca DNS | 103 ferramentas |
-| **steganography-mcp** | **Analise esteganografica** | **60 ferramentas** |
+| **steganography-mcp** | **Analise esteganografica** | **128 ferramentas** |
 
 ---
 

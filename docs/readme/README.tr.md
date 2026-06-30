@@ -36,8 +36,8 @@
 <h3 align="center">AI ajanlari icin en kapsamli steganografi analiz araclari.</h3>
 
 <p align="center">
-  LSB tespiti, ki-kare steganaliz, RS analizi, DCT adli bilisim, ses steganografisi, sifir genislikli metin kodlama, dosya adli bilisim, poliglot tespiti, kodlama tanima &mdash; tek bir MCP sunucusunda birlesti.<br>
-  <b>60 arac. 7 kategori. 4 bagimlilik. %100 cevrimdisi.</b> Sifir API anahtari. Her arac yerel calisir.
+  LSB tespiti, ki-kare steganaliz, RS analizi, DCT adli bilisim, ses steganografisi, sifir genislikli metin kodlama, dosya adli bilisim, poliglot tespiti, kodlama tanima, gelismis JPEG analizi, video ve GIF steganografisi, ag steganografisi, MP3 analizi, yayilmis spektrum analizi, BPCS analizi, arsiv steganografisi, olusturma ve gomme, QR kod steganografisi &mdash; tek bir MCP sunucusunda birlesti.<br>
+  <b>128 arac. 17 kategori. 4 bagimlilik. %100 cevrimdisi.</b> Sifir API anahtari. Her arac yerel calisir.
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#farki-ne">Farki Ne</a> &bull;
   <a href="#hizli-baslangic">Hizli Baslangic</a> &bull;
   <a href="#ai-neler-yapabilir">AI Neler Yapabilir</a> &bull;
-  <a href="#arac-referansi-60-arac">Araclar (60)</a> &bull;
+  <a href="#arac-referansi-128-arac">Araclar (128)</a> &bull;
   <a href="#cli-kullanimi">CLI Kullanimi</a> &bull;
   <a href="#mimari">Mimari</a> &bull;
   <a href="../../CONTRIBUTING.md">Katki</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT Lisansi"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP Uyumlu">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Arac">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Arac">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Sifir API Anahtari">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub yildiz"></a>
@@ -87,7 +87,7 @@ Geleneksel steganografi analiz is akisi:
   Toplam: 10+ arac, 5+ dil, saatlerce manuel korelasyon
 ```
 
-**steganography-mcp**, AI ajaniniza [Model Context Protocol](https://modelcontextprotocol.io) uzerinden 7 kategoride 60 arac sunar. Ajan; goruntu steganalizi, JPEG adli bilisim, ses analizi, metin steganografi tespiti, dosya adli bilisim, belge analizi ve kodlama tanima islemlerini gerceklestirir &mdash; hepsi tek bir konusmada, hepsi %100 yerel olarak calisan, dis servislere hicbir bagimlilik olmadan.
+**steganography-mcp**, AI ajaniniza [Model Context Protocol](https://modelcontextprotocol.io) uzerinden 17 kategoride 128 arac sunar. Ajan; goruntu steganalizi, JPEG adli bilisim, ses analizi, metin steganografi tespiti, dosya adli bilisim, belge analizi, kodlama tanima, gelismis JPEG analizi, video ve GIF steganografisi, ag steganografisi, MP3 analizi, yayilmis spektrum analizi, BPCS analizi, arsiv steganografisi, veri olusturma ve gomme ile QR kod steganografisi islemlerini gerceklestirir &mdash; hepsi tek bir konusmada, hepsi %100 yerel olarak calisan, dis servislere hicbir bagimlilik olmadan.
 
 ```
 steganography-mcp ile:
@@ -131,7 +131,7 @@ Cogu steganografi araci tek amacli yardimci programlardir. steganography-mcp, AI
 <tr>
 <td><b>Kapsam</b></td>
 <td>Ayni anda tek teknik</td>
-<td>7 kategori, 60 arac paralel</td>
+<td>17 kategori, 128 arac paralel</td>
 </tr>
 <tr>
 <td><b>Goruntu analizi</b></td>
@@ -181,7 +181,7 @@ Cogu steganografi araci tek amacli yardimci programlardir. steganography-mcp, AI
 npx -y steganography-mcp
 ```
 
-60 aracin tamami aninda calisir. API anahtari yok. Yapilandirma yok. %100 cevrimdisi.
+128 aracin tamami aninda calisir. API anahtari yok. Yapilandirma yok. %100 cevrimdisi.
 
 ### Secenek 2: bunx (daha hizli)
 
@@ -338,7 +338,7 @@ Ajan: -> jpeg_structure: 14 isaretci ayristirildi, normal JFIF yapisi
 
 ---
 
-## Arac Referansi (60 arac)
+## Arac Referansi (128 arac)
 
 ### Kategori Genel Bakisi
 
@@ -351,6 +351,16 @@ Ajan: -> jpeg_structure: 14 isaretci ayristirildi, normal JFIF yapisi
 | [Dosya Adli Bilisimi](#-dosya-adli-bilisimi-10) | 10 | Sihirli baytlar, poliglot tespiti, gomulu dosyalar, eklenmis veriler, entropi, hex dump, dizeler, basliklar |
 | [Belge Analizi](#-belge-analizi-5) | 5 | Gizli PDF icerigi, PDF meta verileri, PDF akislari, gizli HTML icerigi, XML meta verileri |
 | [Kodlama & Kripto](#-kodlama--kripto-7) | 7 | Kodlama tespiti, coklu format kod cozucu, frekans analizi, entropi, XOR kaba kuvvet, hash tanima, sifre kaliplari |
+| [Gelismis JPEG Analizi](#-gelismis-jpeg-analizi-7) | 7 | F5, JSteg, OutGuess, PVD tespiti, kayar pencere ki-kare, kirilma-yeniden kalibrasyon steganalizi, arac uyumlulugu |
+| [Video Steganografisi](#-video-steganografisi-8) | 8 | AVI cerceve LSB, cerceveler arasi analiz, cerceve karsilastirma, meta veriler, yapi, EOF verileri |
+| [GIF Steganografisi](#-gif-steganografisi-8) | 8 | Palet LSB, LZW alt-blok entropisi, yorum uzantilari, uygulama uzantilari, cerceve analizi |
+| [Ag Steganografisi](#-ag-steganografisi-8) | 8 | PCAP gizli kanallar, IP/TCP baslik analizi, ICMP yukleri, DNS tunelleme, HTTP basliklari, zamanlama |
+| [MP3 Steganografisi](#-mp3-steganografisi-7) | 7 | ID3 gizli veriler, cerceve analizi, padding manipulasyonu, ornek analizi, meta veriler, yapi |
+| [Yayilmis Spektrum](#-yayilmis-spektrum-5) | 5 | DFT buyukluk spektrumu, otokorelasyon, filigran tespiti, gurultu tabani analizi, patchwork tespiti |
+| [BPCS Analizi](#-bpcs-analizi-5) | 5 | Bit duzlemi karmasiklik segmentasyonu, karmasiklik haritalama, esik analizi, veri cikarma, kapasite tahmini |
+| [Arsiv Steganografisi](#-arsiv-steganografisi-7) | 7 | ZIP bos alanlar, ekstra alanlar, yorumlar, poliglot tespiti, yapi analizi, meta veriler |
+| [Olusturma & Gomme](#-olusturma--gomme-7) | 7 | EOF enjeksiyonu, meta veri enjeksiyonu, bosluk kodlama, sifir sifre, poliglot olusturma, yorum enjeksiyonu, palete gomme |
+| [QR Kod Steganografisi](#-qr-kod-steganografisi-6) | 6 | QR stego tespiti, yapi analizi, ECC kapasitesi, modul analizi, veri cikarma, karsilastirma |
 
 ---
 
@@ -478,7 +488,7 @@ Ajan: -> jpeg_structure: 14 isaretci ayristirildi, normal JFIF yapisi
 # Yardimi goster
 npx -y steganography-mcp --help
 
-# Tum 60 araci aciklamalariyla listele
+# Tum 128 araci aciklamalariyla listele
 npx -y steganography-mcp --list
 
 # Goruntude steganografi tespit et
@@ -558,7 +568,7 @@ src/
   index.ts                    # CLI giris noktasi (--help, --list, --tool, stdio sunucu)
   protocol/
     mcp-server.ts             # MCP sunucu kurulumu (stdio tasima)
-    tools.ts                  # Arac kaydi — tum 60 arac burada birlestirildi
+    tools.ts                  # Arac kaydi — tum 128 arac burada birlestirildi
   types/
     index.ts                  # Paylasllan tipler (ToolDef, ToolContext, ToolResult)
   utils/
@@ -569,6 +579,11 @@ src/
     jpeg-parser.ts            # Saf TS JPEG ayristirici (isaretciler, EXIF, niceleme)
     wav-parser.ts             # Saf TS WAV ayristirici (RIFF chunk'lar, PCM ornekleri)
     bmp-parser.ts             # Saf TS BMP ayristirici (baslik, piksel verileri)
+    avi-parser.ts             # Saf TS AVI ayristirici (cerceveler, basliklar)
+    gif-parser.ts             # Saf TS GIF ayristirici (palet, cerceveler, uzantilar)
+    pcap-parser.ts            # Saf TS PCAP ayristirici (paketler, basliklar)
+    mp3-parser.ts             # Saf TS MP3 ayristirici (cerceveler, ID3 etiketleri)
+    zip-parser.ts             # Saf TS ZIP ayristirici (basliklar, girisler)
   image/                      # Goruntu steganaliz araclari (14)
   jpeg/                       # JPEG analiz araclari (7)
   audio/                      # Ses steganaliz araclari (7)
@@ -576,6 +591,16 @@ src/
   file/                       # Dosya adli bilisim araclari (10)
   document/                   # Belge analiz araclari (5)
   crypto/                     # Kodlama & kripto araclari (7)
+  jpegadv/                    # Gelismis JPEG analiz araclari (7)
+  video/                      # Video steganografi araclari (8)
+  gif/                        # GIF steganografi araclari (8)
+  network/                    # Ag steganografi araclari (8)
+  mp3/                        # MP3 steganografi araclari (7)
+  spread/                     # Yayilmis spektrum araclari (5)
+  bpcs/                       # BPCS analiz araclari (5)
+  archive/                    # Arsiv steganografi araclari (7)
+  create/                     # Olusturma & gomme araclari (7)
+  qrcode/                     # QR kod steganografi araclari (6)
   data/
     encoding-patterns.ts      # Kodlama regex kaliplari + kod cozuculer
     magic-bytes.ts            # Dosya imza veritabani (100+ format)
@@ -589,7 +614,7 @@ src/
 - **%100 cevrimdisi** &mdash; Her arac tamamen yerel olarak calisir. HTTP istegi yok. API cagrisi yok. Telemetri yok. Bulut bagimliligi yok. Dosyalariniz makineliizi asla terk etmez.
 - **Saf TypeScript istatistiksel analiz** &mdash; Ki-kare testi, RS analizi (Fridrich-Goljan-Du), Ornek Cifti Analizi, Shannon entropisi, Uyum Indeksi ve frekans analizi tamamen saf TypeScript'te uygulanmistir. Dis matematik kutuphanesi yok.
 - **Ozel format ayristiricilar** &mdash; PNG chunk'lari, JPEG isaretcileri/EXIF/niceleme tablolari, WAV RIFF chunk'lari ve BMP basliklari, `utils/` ayristiricilari kullanilarak sifir dis bagimlilikla ayristirilir. Bu, genel amacli kutuphanelerin saglayamadigi format-ozgu derin analiz imkani sunar.
-- **7 saglayici, 1 sunucu** &mdash; Her analiz kategorisi bagimsiz bir moduldur. AI ajan, sorusturma baglaminsa gore hangi araclari kullanacagini secer.
+- **17 saglayici, 1 sunucu** &mdash; Her analiz kategorisi bagimsiz bir moduldur. AI ajan, sorusturma baglaminsa gore hangi araclari kullanacagini secer.
 - **Temiz ToolDef kalip** &mdash; Her arac ayni `{ name, description, schema, execute }` kalibini takip eder. Yeni arac eklemek, uygun moduldeki tek bir nesnedir.
 - **Her alanda Zod dogrulamasi** &mdash; Her sema alani AI ajan baglami icin `.describe()` iceriri. Gecersiz girisler, yurUtme oncesi acik hata mesajlariyla yakalanir.
 
@@ -606,7 +631,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT ve keşif | 37 arac |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | Karanlik ag ve tehdit istihbarati | 66 arac |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | DNS guvenlik istihbarati | 103 arac |
-| **steganography-mcp** | **Steganografi analizi** | **60 arac** |
+| **steganography-mcp** | **Steganografi analizi** | **128 arac** |
 
 ---
 

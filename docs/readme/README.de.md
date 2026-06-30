@@ -36,8 +36,8 @@
 <h3 align="center">Das umfassendste Steganographie-Analyse-Toolkit f&uuml;r KI-Agenten.</h3>
 
 <p align="center">
-  LSB-Erkennung, Chi-Quadrat-Steganalyse, RS-Analyse, DCT-Forensik, Audio-Steganographie, Zero-Width-Textcodierung, Datei-Forensik, Polyglot-Erkennung, Codierungsidentifikation &mdash; vereint in einem einzigen MCP-Server.<br>
-  <b>60 Werkzeuge. 7 Kategorien. 4 Abh&auml;ngigkeiten. 100 % offline.</b> Keine API-Schl&uuml;ssel erforderlich. Jedes Werkzeug l&auml;uft lokal.
+  LSB-Erkennung, Chi-Quadrat-Steganalyse, RS-Analyse, DCT-Forensik, Audio-Steganographie, Zero-Width-Textcodierung, Datei-Forensik, Polyglot-Erkennung, Codierungsidentifikation, erweiterte JPEG-Analyse, Video/GIF/MP3-Steganographie, Netzwerk-Steganographie, Spread-Spectrum-Analyse, BPCS, Archiv-Steganographie, Erstellung &amp; Einbettung, QR-Code-Steganalyse &mdash; vereint in einem einzigen MCP-Server.<br>
+  <b>128 Werkzeuge. 17 Kategorien. 4 Abh&auml;ngigkeiten. 100 % offline.</b> Keine API-Schl&uuml;ssel erforderlich. Jedes Werkzeug l&auml;uft lokal.
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#was-es-anders-macht">Was es anders macht</a> &bull;
   <a href="#schnellstart">Schnellstart</a> &bull;
   <a href="#was-die-ki-kann">Was die KI kann</a> &bull;
-  <a href="#werkzeug-referenz-60-werkzeuge">Werkzeuge (60)</a> &bull;
+  <a href="#werkzeug-referenz-128-werkzeuge">Werkzeuge (128)</a> &bull;
   <a href="#cli-nutzung">CLI-Nutzung</a> &bull;
   <a href="#architektur">Architektur</a> &bull;
   <a href="../../CONTRIBUTING.md">Mitwirken</a>
@@ -59,7 +59,7 @@
   <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP Compatible">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Tools">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Tools">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Zero API Keys">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub stars"></a>
@@ -87,7 +87,7 @@ Traditioneller Steganographie-Analyse-Workflow:
   Gesamt: 10+ Tools, 5+ Sprachen, stundenlange manuelle Korrelation
 ```
 
-**steganography-mcp** gibt Ihrem KI-Agenten 60 Werkzeuge in 7 Kategorien &uuml;ber das [Model Context Protocol](https://modelcontextprotocol.io). Der Agent f&uuml;hrt Bild-Steganalyse, JPEG-Forensik, Audio-Analyse, Text-Steganographie-Erkennung, Datei-Forensik, Dokumentenanalyse und Codierungsidentifikation durch &mdash; alles in einer einzigen Konversation, alles 100 % lokal und ohne Abh&auml;ngigkeit von externen Diensten.
+**steganography-mcp** gibt Ihrem KI-Agenten 128 Werkzeuge in 17 Kategorien &uuml;ber das [Model Context Protocol](https://modelcontextprotocol.io). Der Agent f&uuml;hrt Bild-Steganalyse, JPEG-Forensik, erweiterte JPEG-Analyse, Audio-Analyse, Text-Steganographie-Erkennung, Datei-Forensik, Dokumentenanalyse, Codierungsidentifikation, Video/GIF/MP3-Steganographie, Netzwerk-Steganographie, Spread-Spectrum-Analyse, BPCS-Analyse, Archiv-Steganographie, Erstellung &amp; Einbettung sowie QR-Code-Steganalyse durch &mdash; alles in einer einzigen Konversation, alles 100 % lokal und ohne Abh&auml;ngigkeit von externen Diensten.
 
 ```
 Mit steganography-mcp:
@@ -131,7 +131,7 @@ Die meisten Steganographie-Tools sind Einzweck-Werkzeuge. steganography-mcp gibt
 <tr>
 <td><b>Abdeckung</b></td>
 <td>Eine Technik auf einmal</td>
-<td>7 Kategorien, 60 Werkzeuge parallel</td>
+<td>17 Kategorien, 128 Werkzeuge parallel</td>
 </tr>
 <tr>
 <td><b>Bildanalyse</b></td>
@@ -181,7 +181,7 @@ Die meisten Steganographie-Tools sind Einzweck-Werkzeuge. steganography-mcp gibt
 npx -y steganography-mcp
 ```
 
-Alle 60 Werkzeuge funktionieren sofort. Keine API-Schl&uuml;ssel. Keine Konfiguration. 100 % offline.
+Alle 128 Werkzeuge funktionieren sofort. Keine API-Schl&uuml;ssel. Keine Konfiguration. 100 % offline.
 
 ### Option 2: bunx (schneller)
 
@@ -338,7 +338,7 @@ Agent: -> jpeg_structure: 14 Marker geparst, normale JFIF-Struktur
 
 ---
 
-## Werkzeug-Referenz (60 Werkzeuge)
+## Werkzeug-Referenz (128 Werkzeuge)
 
 ### Kategorie-&Uuml;bersicht
 
@@ -351,6 +351,16 @@ Agent: -> jpeg_structure: 14 Marker geparst, normale JFIF-Struktur
 | [Datei-Forensik](#-datei-forensik-10) | 10 | Magic Bytes, Polyglot-Erkennung, eingebettete Dateien, angeh&auml;ngte Daten, Entropie, Hex-Dump, Strings, Header |
 | [Dokumentenanalyse](#-dokumentenanalyse-5) | 5 | PDF-versteckte Inhalte, PDF-Metadaten, PDF-Streams, HTML-versteckte Inhalte, XML-Metadaten |
 | [Codierung & Kryptographie](#-codierung--kryptographie-7) | 7 | Codierungserkennung, Multi-Format-Decoder, Frequenzanalyse, Entropie, XOR-Brute-Force, Hash-ID, Chiffre-Muster |
+| [Erweiterte JPEG-Analyse](#-erweiterte-jpeg-analyse-7) | 7 | F5-, JSteg-, OutGuess-, PVD-Erkennung, Sliding-Window-Chi-Quadrat, Crop-Recalibrate-Steganalyse, Tool-Kompatibilit&auml;t |
+| [Video-Steganographie](#-video-steganographie-8) | 8 | AVI-Frame-LSB, Inter-Frame-Analyse, Frame-Vergleich, Metadaten, Struktur, EOF-Daten |
+| [GIF-Steganographie](#-gif-steganographie-8) | 8 | Palette-LSB, LZW-Subblock-Entropie, Kommentar-Erweiterungen, Application-Erweiterungen, Frame-Analyse |
+| [Netzwerk-Steganographie](#-netzwerk-steganographie-8) | 8 | PCAP-verdeckte Kan&auml;le, IP/TCP-Header-Analyse, ICMP-Payloads, DNS-Tunneling, HTTP-Header, Timing |
+| [MP3-Steganographie](#-mp3-steganographie-7) | 7 | ID3-versteckte Daten, Frame-Analyse, Padding-Manipulation, Sample-Analyse, Metadaten, Struktur |
+| [Spread-Spectrum-Analyse](#-spread-spectrum-analyse-5) | 5 | DFT-Amplitudenspektrum, Autokorrelation, Wasserzeichen-Erkennung, Rauschbodenanalyse, Patchwork-Erkennung |
+| [BPCS-Analyse](#-bpcs-analyse-5) | 5 | Bit-Plane-Complexity-Segmentierung, Komplexit&auml;tsmapping, Schwellenwertanalyse, Datenextraktion, Kapazit&auml;tssch&auml;tzung |
+| [Archiv-Steganographie](#-archiv-steganographie-7) | 7 | ZIP-Slack-Spaces, Extra-Felder, Kommentare, Polyglot-Erkennung, Strukturanalyse, Metadaten |
+| [Erstellung & Einbettung](#-erstellung--einbettung-7) | 7 | EOF-Injektion, Metadaten-Injektion, Whitespace-Codierung, Null-Chiffre, Polyglot-Erstellung, Kommentar-Injektion, Palette-Einbettung |
+| [QR-Code-Steganographie](#-qr-code-steganographie-6) | 6 | QR-Stego-Erkennung, Strukturanalyse, ECC-Kapazit&auml;t, Modul-Analyse, Datenextraktion, Vergleich |
 
 ---
 
@@ -478,7 +488,7 @@ Agent: -> jpeg_structure: 14 Marker geparst, normale JFIF-Struktur
 # Hilfe anzeigen
 npx -y steganography-mcp --help
 
-# Alle 60 Werkzeuge mit Beschreibungen auflisten
+# Alle 128 Werkzeuge mit Beschreibungen auflisten
 npx -y steganography-mcp --list
 
 # Steganographie in einem Bild erkennen
@@ -558,17 +568,22 @@ src/
   index.ts                    # CLI-Einstiegspunkt (--help, --list, --tool, stdio-Server)
   protocol/
     mcp-server.ts             # MCP-Server-Setup (stdio-Transport)
-    tools.ts                  # Werkzeug-Registry — alle 60 Werkzeuge hier zusammengestellt
+    tools.ts                  # Werkzeug-Registry — alle 128 Werkzeuge hier zusammengestellt
   types/
     index.ts                  # Gemeinsame Typen (ToolDef, ToolContext, ToolResult)
   utils/
     binary.ts                 # Bin&auml;r-Dateilesen, Hex-Dump, Format-Erkennung
-    stats.ts                  # Shannon-Entropie, Chi-Quadrat, Byte-Frequenz
+    stats.ts                  # Shannon-Entropie, Chi-Quadrat, Byte-Frequenz, DFT, Autokorrelation, BPCS-Komplexit&auml;t, Patchwork-Test
     cache.ts                  # TTL-Cache
     png-parser.ts             # Reiner TS-PNG-Parser (IHDR, Chunks, Pixeldaten)
     jpeg-parser.ts            # Reiner TS-JPEG-Parser (Marker, EXIF, Quantisierung)
     wav-parser.ts             # Reiner TS-WAV-Parser (RIFF-Chunks, PCM-Samples)
     bmp-parser.ts             # Reiner TS-BMP-Parser (Header, Pixeldaten)
+    avi-parser.ts             # Reiner TS-AVI-Parser (Frames, Header)
+    gif-parser.ts             # Reiner TS-GIF-Parser (Palette, LZW-Bl&ouml;cke, Erweiterungen)
+    pcap-parser.ts            # Reiner TS-PCAP-Parser (Pakete, Header)
+    mp3-parser.ts             # Reiner TS-MP3-Parser (Frames, ID3-Tags)
+    zip-parser.ts             # Reiner TS-ZIP-Parser (Eintr&auml;ge, Slack-Spaces)
   image/                      # Bild-Steganalyse-Werkzeuge (14)
   jpeg/                       # JPEG-Analyse-Werkzeuge (7)
   audio/                      # Audio-Steganalyse-Werkzeuge (7)
@@ -576,6 +591,16 @@ src/
   file/                       # Datei-Forensik-Werkzeuge (10)
   document/                   # Dokumentenanalyse-Werkzeuge (5)
   crypto/                     # Codierung & Kryptographie-Werkzeuge (7)
+  jpegadv/                    # Erweiterte JPEG-Analyse-Werkzeuge (7)
+  video/                      # Video-Steganographie-Werkzeuge (8)
+  gif/                        # GIF-Steganographie-Werkzeuge (8)
+  network/                    # Netzwerk-Steganographie-Werkzeuge (8)
+  mp3/                        # MP3-Steganographie-Werkzeuge (7)
+  spread/                     # Spread-Spectrum-Analyse-Werkzeuge (5)
+  bpcs/                       # BPCS-Analyse-Werkzeuge (5)
+  archive/                    # Archiv-Steganographie-Werkzeuge (7)
+  create/                     # Erstellung & Einbettung-Werkzeuge (7)
+  qrcode/                     # QR-Code-Steganographie-Werkzeuge (6)
   data/
     encoding-patterns.ts      # Codierungs-Regex-Muster + Decoder
     magic-bytes.ts            # Dateisignatur-Datenbank (100+ Formate)
@@ -589,7 +614,7 @@ src/
 - **100 % offline** &mdash; Jedes Werkzeug l&auml;uft vollst&auml;ndig lokal. Keine HTTP-Anfragen. Keine API-Aufrufe. Keine Telemetrie. Keine Cloud-Abh&auml;ngigkeiten. Ihre Dateien verlassen niemals Ihren Computer.
 - **Reine TypeScript-statistische Analyse** &mdash; Chi-Quadrat-Test, RS-Analyse (Fridrich-Goljan-Du), Sample-Pair-Analyse, Shannon-Entropie, Koinzidenzindex und Frequenzanalyse sind alle in reinem TypeScript implementiert. Keine externen Mathematik-Bibliotheken.
 - **Eigene Format-Parser** &mdash; PNG-Chunks, JPEG-Marker/EXIF/Quantisierungstabellen, WAV-RIFF-Chunks und BMP-Header werden mit null externen Abh&auml;ngigkeiten durch die `utils/`-Parser verarbeitet. Dies erm&ouml;glicht tiefgehende formatspezifische Analysen, die Universalbibliotheken nicht bieten k&ouml;nnen.
-- **7 Provider, 1 Server** &mdash; Jede Analysekategorie ist ein unabh&auml;ngiges Modul. Der KI-Agent w&auml;hlt die Werkzeuge basierend auf dem Untersuchungskontext.
+- **17 Provider, 1 Server** &mdash; Jede Analysekategorie ist ein unabh&auml;ngiges Modul. Der KI-Agent w&auml;hlt die Werkzeuge basierend auf dem Untersuchungskontext.
 - **Sauberes ToolDef-Muster** &mdash; Jedes Werkzeug folgt dem gleichen `{ name, description, schema, execute }`-Muster. Ein neues Werkzeug hinzuzuf&uuml;gen bedeutet ein einzelnes Objekt im entsprechenden Modul.
 - **Zod-Validierung auf jedem Feld** &mdash; Jedes Schemafeld hat `.describe()` f&uuml;r KI-Agenten-Kontext. Ung&uuml;ltige Eingaben werden vor der Ausf&uuml;hrung mit klaren Fehlermeldungen abgefangen.
 
@@ -606,7 +631,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT & Aufkl&auml;rung | 37 Werkzeuge |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | Darknet & Bedrohungsintelligenz | 66 Werkzeuge |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | DNS-Sicherheitsintelligenz | 103 Werkzeuge |
-| **steganography-mcp** | **Steganographie-Analyse** | **60 Werkzeuge** |
+| **steganography-mcp** | **Steganographie-Analyse** | **128 Werkzeuge** |
 
 ---
 

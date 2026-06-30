@@ -36,8 +36,8 @@
 <h3 align="center">The most comprehensive steganography analysis toolkit for AI agents.</h3>
 
 <p align="center">
-  LSB detection, chi-square steganalysis, RS analysis, DCT forensics, audio steganography, zero-width text encoding, file forensics, polyglot detection, encoding identification &mdash; unified into a single MCP server.<br>
-  <b>60 tools. 7 categories. 4 dependencies. 100% offline.</b> Zero API keys required. Every tool runs locally.
+  LSB detection, chi-square steganalysis, RS analysis, DCT forensics, F5/JSteg/OutGuess detection, BPCS analysis, video &amp; GIF steganography, network covert channels, MP3 stego, spread spectrum watermarks, archive stego, QR code analysis, audio steganography, zero-width text encoding, file forensics, polyglot detection, encoding identification &mdash; unified into a single MCP server.<br>
+  <b>128 tools. 17 categories. 4 dependencies. 100% offline.</b> Zero API keys required. Every tool runs locally.
 </p>
 
 <br>
@@ -47,7 +47,7 @@
   <a href="#how-its-different">How It's Different</a> &bull;
   <a href="#quick-start">Quick Start</a> &bull;
   <a href="#what-the-ai-can-do">What The AI Can Do</a> &bull;
-  <a href="#tools-reference-60-tools">Tools (60)</a> &bull;
+  <a href="#tools-reference-128-tools">Tools (128)</a> &bull;
   <a href="#cli-usage">CLI Usage</a> &bull;
   <a href="#architecture">Architecture</a> &bull;
   <a href="CONTRIBUTING.md">Contributing</a>
@@ -59,7 +59,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT"></a>
   <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" alt="Node >= 18">
   <img src="https://img.shields.io/badge/MCP-Compatible-blueviolet" alt="MCP Compatible">
-  <img src="https://img.shields.io/badge/tools-60-cyan" alt="60 Tools">
+  <img src="https://img.shields.io/badge/tools-128-cyan" alt="128 Tools">
   <img src="https://img.shields.io/badge/API_keys-Zero-green" alt="Zero API Keys">
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6" alt="TypeScript strict">
   <a href="https://github.com/badchars/steganography-mcp"><img src="https://img.shields.io/github/stars/badchars/steganography-mcp" alt="GitHub stars"></a>
@@ -87,7 +87,7 @@ Traditional steganography analysis workflow:
   Total: 10+ tools, 5+ languages, hours of manual correlation
 ```
 
-**steganography-mcp** gives your AI agent 60 tools across 7 categories via the [Model Context Protocol](https://modelcontextprotocol.io). The agent performs image steganalysis, JPEG forensics, audio analysis, text steganography detection, file forensics, document analysis, and encoding identification &mdash; all in a single conversation, all running 100% locally with zero dependencies on external services.
+**steganography-mcp** gives your AI agent 128 tools across 17 categories via the [Model Context Protocol](https://modelcontextprotocol.io). The agent performs image steganalysis, advanced JPEG forensics (F5/JSteg/OutGuess/PVD detection), BPCS analysis, video &amp; GIF steganography, network covert channel detection, MP3 stego, spread spectrum watermark detection, archive stego, QR code analysis, audio analysis, text steganography detection, file forensics, document analysis, and encoding identification &mdash; all in a single conversation, all running 100% locally with zero dependencies on external services.
 
 ```
 With steganography-mcp:
@@ -131,7 +131,7 @@ Most steganography tools are single-purpose utilities. steganography-mcp gives y
 <tr>
 <td><b>Coverage</b></td>
 <td>One technique at a time</td>
-<td>7 categories, 60 tools in parallel</td>
+<td>17 categories, 128 tools in parallel</td>
 </tr>
 <tr>
 <td><b>Image analysis</b></td>
@@ -181,7 +181,7 @@ Most steganography tools are single-purpose utilities. steganography-mcp gives y
 npx -y steganography-mcp
 ```
 
-All 60 tools work immediately. No API keys. No configuration. 100% offline.
+All 128 tools work immediately. No API keys. No configuration. 100% offline.
 
 ### Option 2: bunx (faster)
 
@@ -338,7 +338,7 @@ Agent: -> jpeg_structure: 14 markers parsed, normal JFIF structure
 
 ---
 
-## Tools Reference (60 tools)
+## Tools Reference (128 tools)
 
 ### Category Overview
 
@@ -346,11 +346,21 @@ Agent: -> jpeg_structure: 14 markers parsed, normal JFIF structure
 |----------|-------|-------------|
 | [Image Steganalysis](#-image-steganalysis-14) | 14 | LSB detection, chi-square, RS analysis, entropy mapping, bit planes, histogram, metadata, tool signatures |
 | [JPEG Analysis](#-jpeg-analysis-7) | 7 | DCT histogram, double compression, quantization tables, deep EXIF, thumbnail forensics, comment analysis |
+| [Advanced JPEG](#-advanced-jpeg-7) | 7 | F5, JSteg, OutGuess, PVD detection, sliding window chi-square, crop-recalibrate steganalysis, tool compatibility |
 | [Audio Steganalysis](#-audio-steganalysis-7) | 7 | WAV LSB detection, spectrum analysis, silence region analysis, echo hiding, metadata extraction |
 | [Text & Unicode](#-text--unicode-10) | 10 | Zero-width chars, whitespace encoding, invisible Unicode, homoglyphs, acrostics, Unicode analysis |
 | [File Forensics](#-file-forensics-10) | 10 | Magic bytes, polyglot detection, embedded files, appended data, entropy, hex dump, strings, headers |
 | [Document Analysis](#-document-analysis-5) | 5 | PDF hidden content, PDF metadata, PDF streams, HTML hidden content, XML metadata |
 | [Encoding & Crypto](#-encoding--crypto-7) | 7 | Encoding detection, multi-format decoder, frequency analysis, entropy, XOR brute-force, hash ID, cipher patterns |
+| [Video Steganography](#-video-steganography-8) | 8 | AVI frame LSB, inter-frame analysis, frame comparison, metadata, structure, EOF data |
+| [GIF Steganography](#-gif-steganography-8) | 8 | Palette LSB, LZW sub-block entropy, comment extensions, application extensions, frame analysis |
+| [Network Steganography](#-network-steganography-8) | 8 | PCAP covert channels, IP/TCP header analysis, ICMP payloads, DNS tunneling, HTTP headers, timing |
+| [MP3 Steganography](#-mp3-steganography-7) | 7 | ID3 hidden data, frame analysis, padding manipulation, sample analysis, metadata, structure |
+| [Spread Spectrum](#-spread-spectrum-5) | 5 | DFT magnitude spectrum, autocorrelation, watermark detection, noise floor analysis, patchwork detection |
+| [BPCS Analysis](#-bpcs-analysis-5) | 5 | Bit-plane complexity segmentation, complexity mapping, threshold analysis, data extraction, capacity estimation |
+| [Archive Steganography](#-archive-steganography-7) | 7 | ZIP slack spaces, extra fields, comments, polyglot detection, structure analysis, metadata |
+| [Create & Embed](#-create--embed-7) | 7 | EOF injection, metadata injection, whitespace encoding, null cipher, polyglot creation, comment injection, palette embedding |
+| [QR Code Steganography](#-qr-code-steganography-6) | 6 | QR stego detection, structure analysis, ECC capacity, module analysis, data extraction, comparison |
 
 ---
 
@@ -470,6 +480,154 @@ Agent: -> jpeg_structure: 14 markers parsed, normal JFIF structure
 
 </details>
 
+<details>
+<summary><h3>Advanced JPEG (7)</h3></summary>
+
+| Tool | Description |
+|------|-------------|
+| `jpegadv_f5_detect` | F5 steganography detection. Analyzes DCT coefficient histogram for shrinkage at zero and asymmetric distribution around zero |
+| `jpegadv_jsteg_detect` | JSteg detection. Chi-square test on coefficient value pairs, zero AC coefficient preservation analysis |
+| `jpegadv_outguess_detect` | OutGuess detection. First-order histogram smoothness, second-order statistics, inter-block correlation analysis |
+| `jpegadv_pvd_detect` | Pixel Value Differencing detection. Horizontal/vertical difference histograms, staircase artifacts at PVD range boundaries |
+| `jpegadv_chi_sliding` | Sliding window chi-square analysis. Per-window p-values to detect embedding start/end points and estimate message length |
+| `jpegadv_calibration` | Crop-recalibrate steganalysis. Compares original vs cropped image statistics to reveal DCT modifications |
+| `jpegadv_compatibility` | JPEG stego tool compatibility check. Analyzes markers, quality, encoding type to determine which tools (JSteg, F5, OutGuess, steghide, JPHS) could have been used |
+
+</details>
+
+<details>
+<summary><h3>Video Steganography (8)</h3></summary>
+
+| Tool | Description |
+|------|-------------|
+| `video_detect` | Auto-detect steganography in AVI files. Runs LSB analysis on frames, checks for appended data, analyzes frame size variance |
+| `video_frame_lsb` | LSB analysis of a specific video frame. Extracts raw pixel data, checks LSB balance/distribution and entropy |
+| `video_frame_extract` | Extract LSB bits from specified frames. Assembles into byte stream with hex dump and text preview |
+| `video_frame_compare` | Compare two frames byte-by-byte. Reports MSE, PSNR, max difference, and LSB-only modification detection |
+| `video_inter_frame` | Analyze idx1 index entries for keyframe vs delta frame distribution, flag histogram, and size statistics |
+| `video_metadata` | Extract AVI metadata: dimensions, FPS, codec, stream details, duration, audio presence |
+| `video_structure` | Recursively visualize the RIFF/LIST chunk tree with fourCC codes, offsets, and sizes |
+| `video_eof_data` | Detect and analyze data appended after the RIFF container boundary |
+
+</details>
+
+<details>
+<summary><h3>GIF Steganography (8)</h3></summary>
+
+| Tool | Description |
+|------|-------------|
+| `gif_detect` | Auto-detect GIF steganography. Analyzes color table LSBs, appended data, comment extensions, animation anomalies |
+| `gif_palette` | Palette analysis: sort order, duplicates, unused entries, luminance distribution, LSB-differing adjacent pairs |
+| `gif_palette_lsb` | Extract LSB from each R/G/B channel of the global color table. Per-channel balance and chi-square tests |
+| `gif_frame_analysis` | Multi-frame animation analysis: per-frame size, delay times, disposal methods, local color tables |
+| `gif_comment` | Extract all comment extensions with text content, entropy, printable ratio, and hex dump |
+| `gif_appext` | Application extension analysis. Parses NETSCAPE loop counts, detects non-standard extensions |
+| `gif_lzw_analysis` | LZW sub-block entropy analysis per frame. Detects anomalous sub-block sizes and cross-frame entropy outliers |
+| `gif_structure` | Visualize complete GIF block structure: header, color tables, extensions, image descriptors, trailer |
+
+</details>
+
+<details>
+<summary><h3>Network Steganography (8)</h3></summary>
+
+| Tool | Description |
+|------|-------------|
+| `net_detect` | Auto-detect network steganography in PCAP files. Runs IP covert field, ICMP payload, DNS tunneling, and timing analysis |
+| `net_ip_header` | IP header covert field analysis. TTL patterns, IP identification entropy, TOS/DSCP usage |
+| `net_tcp_header` | TCP seq/ack number analysis. ISN analysis, per-flow sequence increments, TCP options, window size variability |
+| `net_icmp_payload` | ICMP echo payload analysis. Per-packet entropy, printable content ratio, payload size anomalies |
+| `net_dns_tunnel` | DNS tunneling detection. Subdomain length distribution, per-label entropy, TXT record usage, query frequency |
+| `net_http_header` | HTTP header covert channel analysis. Custom headers, X-header entropy, cookie value entropy |
+| `net_timing` | Inter-packet timing analysis. Interval statistics, timing covert channel detection via binary splitting |
+| `net_stats` | PCAP statistics summary. Protocol distribution, top IP pairs, port usage, throughput |
+
+</details>
+
+<details>
+<summary><h3>MP3 Steganography (7)</h3></summary>
+
+| Tool | Description |
+|------|-------------|
+| `mp3_detect` | Auto-detect MP3 steganography. Checks ID3 padding, PRIV frames, pre-audio gaps, trailing data, bitrate anomalies |
+| `mp3_frame_analysis` | Frame header analysis. Bitrate distribution, padding bit entropy, frame size statistics, channel mode consistency |
+| `mp3_id3_hidden` | ID3v1/v2 hidden data analysis. APIC, PRIV, GEOB frames, unknown frame IDs, padding content inspection |
+| `mp3_padding` | Bit reservoir/padding manipulation detection. Pre-audio gaps, inter-frame gaps with per-gap entropy |
+| `mp3_sample_analysis` | Statistical analysis of frame sizes. Distribution histogram, entropy of sizes and deltas, outlier detection |
+| `mp3_metadata` | Full MP3 metadata extraction. Audio properties, ID3v2 frames with decoded text, file structure layout |
+| `mp3_structure` | Frame structure visualization. Per-frame table, bitrate map, and padding bit map |
+
+</details>
+
+<details>
+<summary><h3>Spread Spectrum (5)</h3></summary>
+
+| Tool | Description |
+|------|-------------|
+| `spread_dft_analysis` | DFT magnitude spectrum analysis. Spectral flatness, frequency band energy, dominant frequencies for hidden signal detection |
+| `spread_correlation` | Autocorrelation-based detection. Finds periodic embedding patterns, distinguishes natural peaks from suspicious ones |
+| `spread_watermark_detect` | Statistical watermark detection. Block-based pixel variance comparison, checkerboard patterns, quadrant uniformity |
+| `spread_noise_analysis` | Noise floor embedding detection. Laplacian noise estimation, smooth vs textured region noise comparison |
+| `spread_patchwork` | Patchwork watermark detection. Multi-seed PRNG group splitting, statistical hypothesis testing |
+
+</details>
+
+<details>
+<summary><h3>BPCS Analysis (5)</h3></summary>
+
+| Tool | Description |
+|------|-------------|
+| `bpcs_detect` | Auto-detect BPCS embedding. Complexity analysis across all 24 bit planes (8 planes x 3 channels), MSB/LSB trend analysis |
+| `bpcs_complexity_map` | Full complexity map with ASCII spatial visualization and distribution histograms for all 8 bit planes |
+| `bpcs_threshold` | Threshold sweep analysis from 0.05 to 0.95. Finds optimal BPCS boundary and suspicious complexity patterns |
+| `bpcs_extract` | Extract data from complex regions. Gathers bits above threshold in raster-scan order, analyzes for structure |
+| `bpcs_capacity` | Estimate BPCS embedding capacity across all channels and planes, accounting for conjugation map overhead |
+
+</details>
+
+<details>
+<summary><h3>Archive Steganography (7)</h3></summary>
+
+| Tool | Description |
+|------|-------------|
+| `archive_detect` | Auto-detect archive steganography. Checks slack spaces, prepended/appended data, unusual extra fields, comments |
+| `archive_structure` | ZIP entry structure analysis. Lists all local file headers with offsets, sizes, compression methods, CRC-32 |
+| `archive_extra_fields` | Parse extra fields from local and central directory entries. Flags unknown header IDs as potential hiding spots |
+| `archive_comment` | Extract archive-level and per-file comments with entropy analysis and hex dumps |
+| `archive_slack` | Identify gaps between ZIP entries with size, entropy, printable ratio, and hex dumps |
+| `archive_polyglot` | Detect if ZIP has prepended/appended data valid as another format (PDF, PNG, ELF, PE, etc.) |
+| `archive_metadata` | Summary of file count, compression ratios, timestamps, version info, encryption flags |
+
+</details>
+
+<details>
+<summary><h3>Create & Embed (7)</h3></summary>
+
+| Tool | Description |
+|------|-------------|
+| `create_eof_inject` | Append data after a file's EOF marker. Takes file_path, data, and output_path |
+| `create_metadata` | Inject data into metadata fields. PNG tEXt chunks, JPEG COM segments, generic append |
+| `create_whitespace` | Encode data in trailing whitespace (space=0, tab=1) on text file lines |
+| `create_null_cipher` | Generate null cipher text. First-letter mode or nth-word arrangement |
+| `create_polyglot` | Concatenate two files to create a polyglot valid as both formats |
+| `create_comment` | Inject into format-specific comment fields (PNG tEXt, JPEG COM, GIF Comment Extension) |
+| `create_palette` | Embed data in palette LSBs for indexed PNG (PLTE) and GIF (Global Color Table) |
+
+</details>
+
+<details>
+<summary><h3>QR Code Steganography (6)</h3></summary>
+
+| Tool | Description |
+|------|-------------|
+| `qr_detect` | Detect steganography in QR code images. Pixel distribution bimodality, LSB randomization, non-pure module values |
+| `qr_structure` | QR structure analysis. Finder patterns, version estimation, module size, grid dimensions |
+| `qr_ecc_analysis` | Error correction capacity analysis. ECC levels L/M/Q/H, steganographic capacity from sacrificing ECC codewords |
+| `qr_module_analysis` | Per-module pixel variance analysis. Clean QR codes should have zero intra-module variance |
+| `qr_data_extract` | Extract data region pixels excluding function patterns. Module values, binary string, entropy statistics |
+| `qr_compare` | Compare two QR code images. Data region vs function pattern differences, LSB-only modification detection |
+
+</details>
+
 ---
 
 ## CLI Usage
@@ -478,7 +636,7 @@ Agent: -> jpeg_structure: 14 markers parsed, normal JFIF structure
 # Show help
 npx -y steganography-mcp --help
 
-# List all 60 tools with descriptions
+# List all 128 tools with descriptions
 npx -y steganography-mcp --list
 
 # Detect steganography in an image
@@ -526,6 +684,36 @@ npx -y steganography-mcp --tool crypto_xor '{"input":"4f5243484e"}'
 # Detect cipher patterns
 npx -y steganography-mcp --tool crypto_patterns '{"input":"Gur dhvpx oebja sbk"}'
 
+# Video steganography detection
+npx -y steganography-mcp --tool video_detect '{"file_path":"movie.avi"}'
+
+# GIF palette LSB analysis
+npx -y steganography-mcp --tool gif_palette_lsb '{"file_path":"animation.gif"}'
+
+# Network covert channel detection
+npx -y steganography-mcp --tool net_dns_tunnel '{"file_path":"capture.pcap"}'
+
+# MP3 hidden data detection
+npx -y steganography-mcp --tool mp3_detect '{"file_path":"song.mp3"}'
+
+# F5 JPEG stego detection
+npx -y steganography-mcp --tool jpegadv_f5_detect '{"file_path":"suspect.jpg"}'
+
+# BPCS embedding detection
+npx -y steganography-mcp --tool bpcs_detect '{"file_path":"image.png"}'
+
+# Archive slack space analysis
+npx -y steganography-mcp --tool archive_slack '{"file_path":"archive.zip"}'
+
+# QR code stego detection
+npx -y steganography-mcp --tool qr_detect '{"file_path":"qrcode.bmp"}'
+
+# Spread spectrum watermark detection
+npx -y steganography-mcp --tool spread_patchwork '{"file_path":"image.png"}'
+
+# Create a polyglot file
+npx -y steganography-mcp --tool create_polyglot '{"file1_path":"image.png","file2_path":"secret.zip","output_path":"polyglot.png"}'
+
 # Using Bun (faster startup)
 bunx steganography-mcp --tool img_detect '{"file_path":"image.png"}'
 ```
@@ -558,24 +746,39 @@ src/
   index.ts                    # CLI entrypoint (--help, --list, --tool, stdio server)
   protocol/
     mcp-server.ts             # MCP server setup (stdio transport)
-    tools.ts                  # Tool registry — all 60 tools assembled here
+    tools.ts                  # Tool registry — all 128 tools assembled here
   types/
     index.ts                  # Shared types (ToolDef, ToolContext, ToolResult)
   utils/
     binary.ts                 # Binary file reading, hex dump, format detection
-    stats.ts                  # Shannon entropy, chi-square, byte frequency
+    stats.ts                  # Shannon entropy, chi-square, DFT, autocorrelation, BPCS complexity, patchwork test
     cache.ts                  # TTL cache
     png-parser.ts             # Pure TS PNG parser (IHDR, chunks, pixel data)
-    jpeg-parser.ts            # Pure TS JPEG parser (markers, EXIF, quantization)
+    jpeg-parser.ts            # Pure TS JPEG parser (markers, EXIF, quantization, DCT coefficients)
     wav-parser.ts             # Pure TS WAV parser (RIFF chunks, PCM samples)
     bmp-parser.ts             # Pure TS BMP parser (header, pixel data)
+    avi-parser.ts             # Pure TS AVI/RIFF parser (chunks, streams, idx1, frames)
+    gif-parser.ts             # Pure TS GIF89a parser (color tables, extensions, LZW blocks)
+    pcap-parser.ts            # Pure TS PCAP parser (IP/TCP/UDP/ICMP/DNS/HTTP)
+    mp3-parser.ts             # Pure TS MP3 parser (ID3v1/v2, frame headers)
+    zip-parser.ts             # Pure TS ZIP parser (local headers, central directory, extra fields)
   image/                      # Image Steganalysis tools (14)
   jpeg/                       # JPEG Analysis tools (7)
+  jpegadv/                    # Advanced JPEG tools (7) — F5, JSteg, OutGuess, PVD
   audio/                      # Audio Steganalysis tools (7)
   text/                       # Text & Unicode tools (10)
   file/                       # File Forensics tools (10)
   document/                   # Document Analysis tools (5)
   crypto/                     # Encoding & Crypto tools (7)
+  video/                      # Video Steganography tools (8) — AVI frame analysis
+  gif/                        # GIF Steganography tools (8) — palette, LZW, animation
+  network/                    # Network Steganography tools (8) — PCAP covert channels
+  mp3/                        # MP3 Steganography tools (7) — ID3, padding, frames
+  spread/                     # Spread Spectrum tools (5) — DFT, watermark, patchwork
+  bpcs/                       # BPCS Analysis tools (5) — bit-plane complexity
+  archive/                    # Archive Steganography tools (7) — ZIP slack, extra fields
+  create/                     # Create & Embed tools (7) — EOF inject, polyglot, palette
+  qrcode/                     # QR Code Steganography tools (6) — ECC, modules, compare
   data/
     encoding-patterns.ts      # Encoding regex patterns + decoders
     magic-bytes.ts            # File signature database (100+ formats)
@@ -587,9 +790,9 @@ src/
 
 - **4 dependencies, nothing else** &mdash; `@modelcontextprotocol/sdk` for the MCP protocol, `zod` for input validation, `pngjs` for PNG pixel access, `jpeg-js` for JPEG decoding. No bloated dependency tree. No native modules. No C bindings. No Python. No Java.
 - **100% offline** &mdash; Every tool runs entirely locally. No HTTP requests. No API calls. No telemetry. No cloud dependencies. Your files never leave your machine.
-- **Pure TypeScript statistical analysis** &mdash; Chi-square test, RS analysis (Fridrich-Goljan-Du), Sample Pair Analysis, Shannon entropy, Index of Coincidence, and frequency analysis are all implemented in pure TypeScript. No external math libraries.
-- **Custom format parsers** &mdash; PNG chunks, JPEG markers/EXIF/quantization tables, WAV RIFF chunks, and BMP headers are parsed with zero external dependencies using the `utils/` parsers. This allows deep format-specific analysis that general-purpose libraries cannot provide.
-- **7 providers, 1 server** &mdash; Each analysis category is an independent module. The AI agent picks which tools to use based on the investigation context.
+- **Pure TypeScript statistical analysis** &mdash; Chi-square test, RS analysis (Fridrich-Goljan-Du), Sample Pair Analysis, Shannon entropy, DFT, autocorrelation, BPCS border complexity, patchwork test, Index of Coincidence, and frequency analysis are all implemented in pure TypeScript. No external math libraries.
+- **11 custom format parsers** &mdash; PNG, JPEG, WAV, BMP, AVI/RIFF, GIF89a, PCAP, MP3/ID3, and ZIP are parsed with zero external dependencies using the `utils/` parsers. This allows deep format-specific analysis that general-purpose libraries cannot provide.
+- **17 providers, 1 server** &mdash; Each analysis category is an independent module. The AI agent picks which tools to use based on the investigation context.
 - **Clean ToolDef pattern** &mdash; Every tool follows the same `{ name, description, schema, execute }` pattern. Adding a new tool is a single object in the appropriate module.
 - **Zod validation on every field** &mdash; Every schema field has `.describe()` for AI agent context. Invalid inputs are caught before execution with clear error messages.
 
@@ -606,7 +809,7 @@ src/
 | [osint-mcp-server](https://github.com/badchars/osint-mcp-server) | OSINT & reconnaissance | 37 tools |
 | [darknet-mcp-server](https://github.com/badchars/darknet-mcp-server) | Dark web & threat intelligence | 66 tools |
 | [dns-security-mcp](https://github.com/badchars/dns-security-mcp) | DNS security intelligence | 103 tools |
-| **steganography-mcp** | **Steganography analysis** | **60 tools** |
+| **steganography-mcp** | **Steganography analysis** | **128 tools** |
 
 ---
 
