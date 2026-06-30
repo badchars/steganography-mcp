@@ -110,7 +110,7 @@
   <text x="415" y="55" text-anchor="middle" font-family="'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace" font-size="26" font-weight="700" fill="#ffffff" letter-spacing="-0.5">steganography-mcp</text>
 
   <!-- Subtitle -->
-  <text x="415" y="78" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#a1a1aa" letter-spacing="0.5">60 Tools · 7 Categories · Zero API Keys</text>
+  <text x="415" y="78" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#a1a1aa" letter-spacing="0.5">128 Tools · 17 Categories · Zero API Keys</text>
 
   <!-- Accent line -->
   <rect x="340" y="88" width="150" height="2" rx="1" fill="url(#accent)" opacity="0.6"/>
