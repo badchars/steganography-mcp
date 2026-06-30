@@ -20,11 +20,21 @@ function buildToolContext(): ToolContext {
 const TOOL_CATEGORIES: { category: string; prefix: string }[] = [
   { category: "Image Steganalysis", prefix: "img_" },
   { category: "JPEG Analysis", prefix: "jpeg_" },
+  { category: "Advanced JPEG", prefix: "jpegadv_" },
   { category: "Audio Steganalysis", prefix: "audio_" },
   { category: "Text & Unicode", prefix: "text_" },
   { category: "File Forensics", prefix: "file_" },
   { category: "Document Analysis", prefix: "doc_" },
   { category: "Encoding & Crypto", prefix: "crypto_" },
+  { category: "Video Steganography", prefix: "video_" },
+  { category: "GIF Steganography", prefix: "gif_" },
+  { category: "Network Steganography", prefix: "net_" },
+  { category: "MP3 Steganography", prefix: "mp3_" },
+  { category: "Spread Spectrum", prefix: "spread_" },
+  { category: "BPCS Analysis", prefix: "bpcs_" },
+  { category: "Archive Steganography", prefix: "archive_" },
+  { category: "Create & Embed", prefix: "create_" },
+  { category: "QR Code Steganography", prefix: "qr_" },
 ];
 
 function categorize(toolName: string): string {

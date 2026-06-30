@@ -366,3 +366,358 @@ export function byteFrequency(data: Buffer): FrequencyResult {
     chiSquareUniformity: chiResult,
   };
 }
+
+// ─── Discrete Fourier Transform (Spread Spectrum Steganalysis) ───
+
+export interface DftResult {
+  magnitudes: Float64Array;
+  phases: Float64Array;
+  dominantFrequencies: Array<{ index: number; magnitude: number; frequency: number }>;
+  spectralFlatness: number;
+}
+
+/**
+ * Compute the Discrete Fourier Transform of a real-valued signal.
+ * Returns magnitudes, phases, top-10 dominant frequencies, and spectral flatness.
+ * Signal is downsampled to max 8192 samples for performance.
+ * Only the first N/2 frequencies (up to Nyquist) are computed.
+ */
+export function discreteFourierTransform(signal: number[], sampleRate: number = 1.0): DftResult {
+  // Downsample if longer than 8192 by averaging consecutive pairs
+  let samples = signal;
+  while (samples.length > 8192) {
+    const downsampled: number[] = [];
+    for (let i = 0; i < samples.length - 1; i += 2) {
+      downsampled.push((samples[i] + samples[i + 1]) / 2);
+    }
+    // If odd length, include the last sample
+    if (samples.length % 2 !== 0) {
+      downsampled.push(samples[samples.length - 1]);
+    }
+    samples = downsampled;
+  }
+
+  const N = samples.length;
+  const halfN = Math.floor(N / 2);
+
+  if (halfN === 0) {
+    return {
+      magnitudes: new Float64Array(0),
+      phases: new Float64Array(0),
+      dominantFrequencies: [],
+      spectralFlatness: 0,
+    };
+  }
+
+  const magnitudes = new Float64Array(halfN);
+  const phases = new Float64Array(halfN);
+
+  for (let k = 0; k < halfN; k++) {
+    let re = 0;
+    let im = 0;
+    const freqFactor = (2 * Math.PI * k) / N;
+    for (let n = 0; n < N; n++) {
+      const angle = freqFactor * n;
+      re += samples[n] * Math.cos(angle);
+      im -= samples[n] * Math.sin(angle);
+    }
+    magnitudes[k] = Math.sqrt(re * re + im * im);
+    phases[k] = Math.atan2(im, re);
+  }
+
+  // Find top 10 dominant frequencies by magnitude
+  const indexed: Array<{ index: number; magnitude: number }> = [];
+  for (let k = 0; k < halfN; k++) {
+    indexed.push({ index: k, magnitude: magnitudes[k] });
+  }
+  indexed.sort((a, b) => b.magnitude - a.magnitude);
+  const top10 = indexed.slice(0, Math.min(10, indexed.length));
+  const dominantFrequencies = top10.map((entry) => ({
+    index: entry.index,
+    magnitude: entry.magnitude,
+    frequency: (entry.index * sampleRate) / N,
+  }));
+
+  // Spectral flatness: exp(mean(log(power))) / mean(power)
+  // Power spectrum = magnitude^2
+  let logPowerSum = 0;
+  let powerSum = 0;
+  let nonZeroCount = 0;
+
+  for (let k = 0; k < halfN; k++) {
+    const power = magnitudes[k] * magnitudes[k];
+    powerSum += power;
+    if (power > 0) {
+      logPowerSum += Math.log(power);
+      nonZeroCount++;
+    }
+  }
+
+  let spectralFlatness = 0;
+  if (nonZeroCount > 0 && powerSum > 0) {
+    const geometricMean = Math.exp(logPowerSum / halfN);
+    const arithmeticMean = powerSum / halfN;
+    spectralFlatness = arithmeticMean > 0 ? geometricMean / arithmeticMean : 0;
+  }
+
+  return { magnitudes, phases, dominantFrequencies, spectralFlatness };
+}
+
+// ─── Autocorrelation (Spread Spectrum Detection) ───
+
+export interface AutocorrelationResult {
+  values: Float64Array;
+  peaks: Array<{ lag: number; value: number }>;
+  periodicity: number | null;
+  isperiodic: boolean;
+}
+
+/**
+ * Compute normalized autocorrelation of a signal.
+ * Finds peaks (local maxima above 0.3) and detects periodicity.
+ */
+export function autocorrelation(signal: number[], maxLag?: number): AutocorrelationResult {
+  const N = signal.length;
+  const effectiveMaxLag = maxLag ?? Math.min(Math.floor(N / 2), 512);
+
+  if (N < 2) {
+    return {
+      values: new Float64Array(0),
+      peaks: [],
+      periodicity: null,
+      isperiodic: false,
+    };
+  }
+
+  // Compute mean
+  let sum = 0;
+  for (let i = 0; i < N; i++) {
+    sum += signal[i];
+  }
+  const mean = sum / N;
+
+  // Compute variance
+  let variance = 0;
+  for (let i = 0; i < N; i++) {
+    const diff = signal[i] - mean;
+    variance += diff * diff;
+  }
+  variance /= N;
+
+  if (variance === 0) {
+    const values = new Float64Array(effectiveMaxLag + 1);
+    values.fill(1); // constant signal — perfect self-correlation
+    return { values, peaks: [], periodicity: null, isperiodic: false };
+  }
+
+  // Compute normalized autocorrelation for each lag
+  const values = new Float64Array(effectiveMaxLag + 1);
+  for (let k = 0; k <= effectiveMaxLag; k++) {
+    let autoCorr = 0;
+    for (let n = 0; n < N - k; n++) {
+      autoCorr += (signal[n] - mean) * (signal[n + k] - mean);
+    }
+    values[k] = autoCorr / (N * variance);
+  }
+
+  // Find peaks: local maxima above 0.3 (skip lag 0 which is always 1.0)
+  const peaks: Array<{ lag: number; value: number }> = [];
+  for (let k = 1; k < effectiveMaxLag; k++) {
+    if (
+      values[k] > 0.3 &&
+      values[k] >= values[k - 1] &&
+      values[k] >= values[k + 1]
+    ) {
+      peaks.push({ lag: k, value: values[k] });
+    }
+  }
+
+  // Detect periodicity: check if peaks are evenly spaced
+  let periodicity: number | null = null;
+  let isperiodic = false;
+
+  if (peaks.length >= 2) {
+    // Compute gaps between consecutive peaks
+    const gaps: number[] = [];
+    for (let i = 1; i < peaks.length; i++) {
+      gaps.push(peaks[i].lag - peaks[i - 1].lag);
+    }
+
+    // Check if gaps are roughly equal (within 15% tolerance)
+    const avgGap = gaps.reduce((a, b) => a + b, 0) / gaps.length;
+    const tolerance = avgGap * 0.15;
+    const allClose = gaps.every((g) => Math.abs(g - avgGap) <= tolerance);
+
+    if (allClose && avgGap > 0) {
+      periodicity = Math.round(avgGap);
+      isperiodic = true;
+    }
+  } else if (peaks.length === 1) {
+    // Single peak — report its lag as potential period
+    periodicity = peaks[0].lag;
+    isperiodic = false; // need at least 2 peaks to confirm
+  }
+
+  return { values, peaks, periodicity, isperiodic };
+}
+
+// ─── Border Complexity (BPCS Steganalysis) ───
+
+export interface ComplexityResult {
+  complexity: number;
+  totalChanges: number;
+  maxPossible: number;
+  isComplex: boolean;
+}
+
+/**
+ * Compute border complexity of a binary block for BPCS steganalysis.
+ * Block values should be 0 or 1 in row-major order.
+ * Complexity = ratio of color changes along pixel borders to maximum possible changes.
+ */
+export function borderComplexity(
+  block: Uint8Array | number[],
+  width: number,
+  height: number,
+  threshold: number = 0.3,
+): ComplexityResult {
+  let totalChanges = 0;
+
+  // Horizontal changes: for each row, count adjacent pairs that differ
+  for (let row = 0; row < height; row++) {
+    for (let col = 0; col < width - 1; col++) {
+      const idx = row * width + col;
+      if (block[idx] !== block[idx + 1]) {
+        totalChanges++;
+      }
+    }
+  }
+
+  // Vertical changes: for each column, count vertically adjacent pairs that differ
+  for (let row = 0; row < height - 1; row++) {
+    for (let col = 0; col < width; col++) {
+      const idx = row * width + col;
+      if (block[idx] !== block[idx + width]) {
+        totalChanges++;
+      }
+    }
+  }
+
+  const maxPossible = (width - 1) * height + width * (height - 1);
+  const complexity = maxPossible > 0 ? totalChanges / maxPossible : 0;
+  const isComplex = complexity >= threshold;
+
+  return { complexity, totalChanges, maxPossible, isComplex };
+}
+
+// ─── Normal CDF Approximation (exported) ───
+
+/**
+ * Standard normal CDF approximation (Abramowitz and Stegun).
+ * Exported version for use by downstream analysis functions.
+ */
+export function normalCdfApprox(x: number): number {
+  const a1 = 0.254829592;
+  const a2 = -0.284496736;
+  const a3 = 1.421413741;
+  const a4 = -1.453152027;
+  const a5 = 1.061405429;
+  const p = 0.3275911;
+
+  const sign = x < 0 ? -1 : 1;
+  const absX = Math.abs(x) / Math.SQRT2;
+  const t = 1.0 / (1.0 + p * absX);
+  const y =
+    1.0 -
+    ((((a5 * t + a4) * t + a3) * t + a2) * t + a1) * t * Math.exp(-absX * absX);
+  return 0.5 * (1.0 + sign * y);
+}
+
+// ─── Patchwork Test (Patchwork Watermark Detection) ───
+
+export interface PatchworkResult {
+  statistic: number;
+  normalizedStatistic: number;
+  pValue: number;
+  detected: boolean;
+}
+
+/**
+ * Patchwork watermark detection test.
+ * Splits values into two pseudo-random groups using an LCG, then tests
+ * whether the mean difference between groups is statistically significant.
+ * A significant difference suggests a patchwork watermark is present.
+ */
+export function patchworkTest(values: number[], seed: number = 42): PatchworkResult {
+  const N = values.length;
+
+  if (N < 4) {
+    return { statistic: 0, normalizedStatistic: 0, pValue: 1, detected: false };
+  }
+
+  // LCG pseudo-random number generator
+  const LCG_A = 1103515245;
+  const LCG_C = 12345;
+  const LCG_M = 2147483648; // 2^31
+
+  let lcgState = ((seed % LCG_M) + LCG_M) % LCG_M; // ensure non-negative
+
+  // Split values into two groups based on pseudo-random bit
+  let sumA = 0;
+  let countA = 0;
+  let sumB = 0;
+  let countB = 0;
+
+  for (let i = 0; i < N; i++) {
+    lcgState = (Math.imul(LCG_A, lcgState) + LCG_C) >>> 0;
+    const normalized = (lcgState & 0x7FFFFFFF) % LCG_M; // ensure within [0, 2^31)
+    const bit = (normalized >> 16) & 1; // use a mid-range bit for better distribution
+
+    if (bit === 1) {
+      sumA += values[i];
+      countA++;
+    } else {
+      sumB += values[i];
+      countB++;
+    }
+  }
+
+  if (countA === 0 || countB === 0) {
+    return { statistic: 0, normalizedStatistic: 0, pValue: 1, detected: false };
+  }
+
+  const meanA = sumA / countA;
+  const meanB = sumB / countB;
+  const statistic = meanA - meanB;
+
+  // Compute overall variance
+  let overallMean = 0;
+  for (let i = 0; i < N; i++) {
+    overallMean += values[i];
+  }
+  overallMean /= N;
+
+  let variance = 0;
+  for (let i = 0; i < N; i++) {
+    const diff = values[i] - overallMean;
+    variance += diff * diff;
+  }
+  variance /= N;
+
+  // Under null hypothesis: S ~ N(0, sigma^2 * (1/countA + 1/countB))
+  const stdErr = variance > 0
+    ? Math.sqrt(variance * (1 / countA + 1 / countB))
+    : 0;
+
+  const normalizedStatistic = stdErr > 0 ? statistic / stdErr : 0;
+
+  // Two-tailed p-value
+  const pValue = stdErr > 0
+    ? 2 * (1 - normalCdfApprox(Math.abs(normalizedStatistic)))
+    : 1;
+
+  // Detected if p < 0.01 (99% confidence)
+  const detected = pValue < 0.01;
+
+  return { statistic, normalizedStatistic, pValue, detected };
+}

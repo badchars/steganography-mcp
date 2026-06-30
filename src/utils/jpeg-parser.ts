@@ -366,6 +366,59 @@ export function findJpegAppendedData(buffer: Buffer): Buffer | null {
   return null;
 }
 
+// ─── DCT Coefficient Extraction ───
+
+/**
+ * Extract approximate DCT coefficients and quantization tables from a JPEG buffer.
+ * Since full Huffman decoding is not performed, coefficients are approximated
+ * from the SOS entropy-coded data by interpreting bytes as signed values.
+ * Quantization tables are extracted from DQT markers.
+ */
+export function extractDctCoefficients(buf: Buffer): {
+  coefficients: number[];
+  quantTables: number[][];
+} {
+  const markers = parseJpegMarkers(buf);
+
+  // Extract quantization tables
+  const quantTables: number[][] = [];
+  for (const m of markers) {
+    if (m.marker !== 0xffdb) continue;
+    let offset = 0;
+    while (offset < m.data.length) {
+      const pq = (m.data[offset] >> 4) & 0x0f;
+      offset++;
+      const values: number[] = [];
+      const count = 64;
+      if (pq === 0) {
+        for (let i = 0; i < count && offset < m.data.length; i++) {
+          values.push(m.data[offset++]);
+        }
+      } else {
+        for (let i = 0; i < count && offset + 1 < m.data.length; i++) {
+          values.push((m.data[offset] << 8) | m.data[offset + 1]);
+          offset += 2;
+        }
+      }
+      if (values.length === 64) {
+        quantTables.push(values);
+      }
+    }
+  }
+
+  // Extract approximate coefficients from SOS data
+  const coefficients: number[] = [];
+  const sos = markers.find((m) => m.marker === 0xffda);
+  if (sos && sos.data.length > 0) {
+    for (let i = 0; i < sos.data.length; i++) {
+      const val = sos.data[i] > 127 ? sos.data[i] - 256 : sos.data[i];
+      coefficients.push(val);
+    }
+  }
+
+  return { coefficients, quantTables };
+}
+
 // ─── DCT Coefficient Distribution Analysis ───
 
 /**

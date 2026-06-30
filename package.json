@@ -1,7 +1,7 @@
 {
   "name": "steganography-mcp",
-  "version": "0.1.0",
-  "description": "Steganography analysis MCP server — 60 tools for image steganalysis, audio steganography, text steganography, file forensics, JPEG analysis, document analysis, encoding detection. 100% local, zero API keys required.",
+  "version": "0.2.0",
+  "description": "Steganography analysis MCP server — 128 tools, 17 categories. Image steganalysis, JPEG/F5/JSteg detection, audio steganography, video stego, GIF palette analysis, network covert channels, MP3 stego, spread spectrum, BPCS, archive stego, QR code analysis, text steganography, file forensics, document analysis, encoding detection. 100% local, zero API keys required.",
   "type": "module",
   "bin": {
     "steganography-mcp": "dist/index.js"
@@ -17,7 +17,11 @@
     "lsb", "image-forensics", "audio-steganography", "text-steganography",
     "zero-width-characters", "file-forensics", "binwalk", "entropy-analysis",
     "chi-square", "ctf", "capture-the-flag", "digital-forensics",
-    "jpeg-analysis", "exif", "metadata", "security",
+    "jpeg-analysis", "f5-stego", "jsteg", "outguess", "bpcs",
+    "video-steganography", "gif-steganography", "network-steganography",
+    "mp3-steganography", "spread-spectrum", "archive-steganography",
+    "qr-code", "pcap", "covert-channel", "watermark",
+    "exif", "metadata", "security",
     "cybersecurity", "infosec", "ai", "ai-agent", "claude", "llm"
   ],
   "author": "Orhan Yildirim <contact@orhanyildirim.us> (https://orhanyildirim.us)",
